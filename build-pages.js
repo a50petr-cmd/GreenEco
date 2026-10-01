@@ -9,13 +9,14 @@ vm.createContext(sandbox);
 vm.runInContext(dataSrc, sandbox);
 const PRODUCTS = sandbox.window.GREENECO.products;
 const NEWS = sandbox.window.GREENECO.news;
-const ASSET_V = sandbox.window.GREENECO.assetVersion || "20261004";
+const ASSET_V = sandbox.window.GREENECO.assetVersion || "20261005";
 
 function wrap({ title, desc, css, root, page, body, extraHead = "", extraScript = "" }) {
   const icon = css.replace("css/style.css", "favicon.svg");
   return `<!DOCTYPE html>
 <html lang="ru">
 <head>
+  <script>(function(){if((location.hostname||"").indexOf("github.io")<0)return;if(/^\/[^/]+$/.test(location.pathname))location.replace(location.pathname+"/"+location.search+location.hash);})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>

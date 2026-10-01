@@ -2,9 +2,12 @@
   const root = document.body.getAttribute("data-root") || "";
   const page = document.body.getAttribute("data-page") || "";
   const C = window.GREENECO.company;
+  window.GREENECO.base = root;
 
   function href(path) {
     if (!path) return root || "./";
+    path = String(path).replace(/^\//, "");
+    if (path.slice(-1) === "/") path += "index.html";
     return root + path;
   }
 

@@ -1,6 +1,6 @@
 (function () {
   const products = window.GREENECO.applyPrices(window.GREENECO.products);
-  const root = document.body.getAttribute("data-root") || "";
+  const root = window.GREENECO.base != null ? window.GREENECO.base : (document.body.getAttribute("data-root") || "");
 
   function money(n) {
     return new Intl.NumberFormat("ru-RU").format(n) + " ₽";

@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 $rootDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $rootDir) { $rootDir = (Get-Location).Path }
 
-$ASSET_V = "20261004"
+$ASSET_V = "20261005"
 
 function Wrap($title, $desc, $css, $root, $page, $body, $extraHead, $extraScript) {
   if (-not $extraHead) { $extraHead = "" }
@@ -12,6 +12,7 @@ function Wrap($title, $desc, $css, $root, $page, $body, $extraHead, $extraScript
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <script>(function(){if((location.hostname||"").indexOf("github.io")<0)return;if(/^\/[^/]+$/.test(location.pathname))location.replace(location.pathname+"/"+location.search+location.hash);})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$title</title>
