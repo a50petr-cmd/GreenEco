@@ -18,7 +18,7 @@
       '<nav class="nav">' +
       '<a href="' + href("index.html") + '">Главная</a>' +
       '<a href="' + href("o-kompanii.html") + '">О компании</a>' +
-      '<div class="nav-drop"><span>Продукция</span><div class="nav-drop-menu">' +
+      '<div class="nav-drop"><a href="' + href("produkciya/") + '">Продукция</a><div class="nav-drop-menu">' +
       '<a href="' + href("produkciya/") + '">Весь каталог</a>' +
       '<a href="' + href("produkciya/ovoshchi/") + '">Овощи</a>' +
       '<a href="' + href("produkciya/frukty/") + '">Фрукты</a>' +

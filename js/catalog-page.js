@@ -2,14 +2,17 @@
   const box = document.getElementById("catalog");
   if (!box) return;
   const cat = box.dataset.category || "";
+  function val(id) {
+    var el = document.getElementById(id);
+    return el ? el.value : "";
+  }
   function apply() {
-    const fCatEl = document.getElementById("f-cat");
-    const fCat = fCatEl ? fCatEl.value : cat;
-    const season = document.getElementById("f-season").value;
-    const cal = document.getElementById("f-cal").value;
-    const pack = document.getElementById("f-pack").value;
-    const sort = document.getElementById("f-sort").value;
-    var rows = window.GREENECO.catalog.filter(function (p) {
+    const fCat = val("f-cat") || cat;
+    const season = val("f-season");
+    const cal = val("f-cal");
+    const pack = val("f-pack");
+    const sort = val("f-sort") || "name";
+    var rows = (window.GREENECO.catalog || []).filter(function (p) {
       if (cat && p.category !== cat) return false;
       if (!cat && fCat && p.category !== fCat) return false;
       if (season && (p.seasonKeys || []).indexOf(season) === -1) return false;

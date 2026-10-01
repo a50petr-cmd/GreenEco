@@ -65,11 +65,11 @@ button, input, select, textarea { font-family: inherit; }
   color: var(--muted); text-transform: uppercase;
 }
 .nav { display: flex; align-items: center; gap: 4px; margin-left: auto; flex-wrap: wrap; }
-.nav a, .nav-drop > span {
+.nav a, .nav-drop > span, .nav-drop > a {
   padding: 8px 10px; font-size: 0.92rem; font-weight: 600;
   color: var(--soil); border-radius: 10px; cursor: pointer;
 }
-.nav a:hover, .nav-drop:hover > span { background: var(--sand); color: var(--leaf-dark); }
+.nav a:hover, .nav-drop:hover > span, .nav-drop:hover > a { background: var(--sand); color: var(--leaf-dark); }
 .nav-drop { position: relative; }
 .nav-drop-menu {
   display: none; position: absolute; top: 100%; left: 0;
