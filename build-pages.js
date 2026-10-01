@@ -58,7 +58,7 @@ write(
     page: "home",
     extraScript: `<script>window.GREENECO.renderCards(document.getElementById("popular"), window.GREENECO.catalog.filter(p => p.popular));</script>`,
     body: `
-<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=80')">
+<section class="hero" style="background-image:url('img/photos/hero.jpg')">
   <div class="container hero-inner">
     <span class="eyebrow">Производитель · Краснодарский край</span>
     <h1>ГринЭко</h1>
@@ -82,7 +82,7 @@ write(
       </div>
       <p style="margin-top:18px"><a class="btn btn-dark" href="o-kompanii.html">Подробнее о производстве</a></p>
     </div>
-    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80" alt="Теплицы ГринЭко" style="border-radius:24px;height:100%;object-fit:cover;min-height:320px">
+    <img src="img/photos/greenhouse.jpg" alt="Теплицы ГринЭко" style="border-radius:24px;height:100%;object-fit:cover;min-height:320px">
   </div>
 </section>
 <section style="padding-top:0">
@@ -90,10 +90,10 @@ write(
     <p class="section-kicker">Каталог</p>
     <h2>Категории продукции</h2>
     <div class="cat-grid" style="margin-top:20px">
-      <a class="cat-card" href="produkciya/ovoshchi/"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80" alt="Овощи"><span>Овощи</span></a>
-      <a class="cat-card" href="produkciya/frukty/"><img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80" alt="Фрукты"><span>Фрукты</span></a>
-      <a class="cat-card" href="produkciya/yagody/"><img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=900&q=80" alt="Ягоды"><span>Ягоды</span></a>
-      <a class="cat-card" href="produkciya/zelen/"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80" alt="Зелень"><span>Зелень</span></a>
+      <a class="cat-card" href="produkciya/ovoshchi/"><img src="img/photos/ovoshchi.jpg" alt="Овощи"><span>Овощи</span></a>
+      <a class="cat-card" href="produkciya/frukty/"><img src="img/photos/frukty.jpg" alt="Фрукты"><span>Фрукты</span></a>
+      <a class="cat-card" href="produkciya/yagody/"><img src="img/photos/yagody.jpg" alt="Ягоды"><span>Ягоды</span></a>
+      <a class="cat-card" href="produkciya/zelen/"><img src="img/photos/zelen.jpg" alt="Зелень"><span>Зелень</span></a>
     </div>
   </div>
 </section>
@@ -148,14 +148,14 @@ write(
     <p class="section-kicker">Клиенты</p>
     <h2>Партнёры</h2>
     <div class="logo-grid" style="margin-top:16px">
-      <div class="partner"><img src="img/partners/magnit.svg" alt="Магнит"></div>
-      <div class="partner"><img src="img/partners/pyaterochka.svg" alt="Пятёрочка"></div>
-      <div class="partner"><img src="img/partners/chizhik.svg" alt="Чижик"></div>
-      <div class="partner"><img src="img/partners/perekrestok.svg" alt="Перекрёсток"></div>
-      <div class="partner"><img src="img/partners/lenta.svg" alt="Лента"></div>
-      <div class="partner"><img src="img/partners/metro.svg" alt="METRO"></div>
-      <div class="partner"><img src="img/partners/verny.svg" alt="Верный"></div>
-      <div class="partner"><img src="img/partners/dixy.svg" alt="Дикси"></div>
+      <div class="partner"><span class="brand-logo brand-magnit">МАГНИТ</span></div>
+      <div class="partner"><span class="brand-logo brand-pyaterochka"><i>5</i>Пятёрочка</span></div>
+      <div class="partner"><span class="brand-logo brand-chizhik">ЧИЖИК</span></div>
+      <div class="partner"><span class="brand-logo brand-perekrestok">ПЕРЕКРЁСТОК</span></div>
+      <div class="partner"><span class="brand-logo brand-lenta">ЛЕНТА</span></div>
+      <div class="partner"><span class="brand-logo brand-metro">METRO</span></div>
+      <div class="partner"><span class="brand-logo brand-verny">ВЕРНЫЙ</span></div>
+      <div class="partner"><span class="brand-logo brand-dixy">ДИКСИ</span></div>
     </div>
   </div>
 </section>
@@ -206,7 +206,7 @@ write(
     <h2>С 2012 года выращиваем еду, которой не стыдно поставить своё имя</h2>
     <p class="muted">ГринЭко начинался с 80 гектаров овощного севооборота в Динском районе. Сегодня это 1 240 га открытого грунта, 18 га теплиц и холодильный комплекс на 4 500 тонн. Миссия — короткая цепочка «поле — склад — полка», без потери свежести и без лишней наценки.</p>
   </div>
-  <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80" alt="Поля" style="border-radius:24px">
+  <img src="img/photos/field.jpg" alt="Поля" style="border-radius:24px">
 </div></section>
 <section style="padding-top:0"><div class="container">
   <h2>Производственные мощности</h2>
@@ -244,12 +244,12 @@ write(
 <section><div class="container">
   <h2>Фотогалерея производства</h2>
   <div class="gallery" style="margin-top:16px">
-    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80" alt="Поле">
-    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80" alt="Теплица">
-    <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=800&q=80" alt="Урожай">
-    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Логистика">
-    <img src="https://images.unsplash.com/photo-1570913149827-d2afd686b81a?auto=format&fit=crop&w=800&q=80" alt="Сад">
-    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=800&q=80" alt="Зелень">
+    <img src="img/photos/hero.jpg" alt="Поле">
+    <img src="img/photos/greenhouse.jpg" alt="Теплица">
+    <img src="img/photos/harvest.jpg" alt="Урожай">
+    <img src="img/photos/logistics.jpg" alt="Логистика">
+    <img src="img/photos/garden.jpg" alt="Сад">
+    <img src="img/photos/zelen.jpg" alt="Зелень">
   </div>
 </div></section>
 <section style="padding-top:0"><div class="container panel" style="padding:28px">
@@ -406,7 +406,7 @@ PRODUCTS.forEach((p) => {
   <p class="muted">${p.seo}. Сорт, калибр, упаковка и актуальная цена.</p>
 </div></div>
 <section><div class="container product-layout">
-  <img src="${p.image}" alt="${p.name}" style="border-radius:24px;width:100%;height:420px;object-fit:cover">
+  <img src="../../../${p.image}" alt="${p.name}" style="border-radius:24px;width:100%;height:420px;object-fit:cover">
   <div>
     <span class="tag">${p.categoryName}</span>
     <p style="margin-top:12px">${p.desc}</p>

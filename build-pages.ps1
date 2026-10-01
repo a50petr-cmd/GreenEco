@@ -99,7 +99,7 @@ $filtersCat = @'
 '@
 
 Save "index.html" (Wrap "ГринЭко — овощи и фрукты оптом с собственных полей" "ООО «ГринЭко»: овощи, фрукты, ягоды и зелень оптом. 1240 га, 28 000 тонн в год, доставка по ЮФО и ЦФО. Актуальный прайс." "css/style.css" "" "home" @'
-<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=80')">
+<section class="hero" style="background-image:url('img/photos/hero.jpg')">
   <div class="container hero-inner">
     <span class="eyebrow">Производитель · Краснодарский край</span>
     <h1>ГринЭко</h1>
@@ -123,7 +123,7 @@ Save "index.html" (Wrap "ГринЭко — овощи и фрукты опто�
       </div>
       <p style="margin-top:18px"><a class="btn btn-dark" href="o-kompanii.html">Подробнее о производстве</a></p>
     </div>
-    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=80" alt="Теплицы ГринЭко" style="border-radius:24px;height:100%;object-fit:cover;min-height:320px">
+    <img src="img/photos/greenhouse.jpg" alt="Теплицы ГринЭко" style="border-radius:24px;height:100%;object-fit:cover;min-height:320px">
   </div>
 </section>
 <section style="padding-top:0">
@@ -131,10 +131,10 @@ Save "index.html" (Wrap "ГринЭко — овощи и фрукты опто�
     <p class="section-kicker">Каталог</p>
     <h2>Категории продукции</h2>
     <div class="cat-grid" style="margin-top:20px">
-      <a class="cat-card" href="produkciya/ovoshchi/"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80" alt="Овощи"><span>Овощи</span></a>
-      <a class="cat-card" href="produkciya/frukty/"><img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80" alt="Фрукты"><span>Фрукты</span></a>
-      <a class="cat-card" href="produkciya/yagody/"><img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=900&q=80" alt="Ягоды"><span>Ягоды</span></a>
-      <a class="cat-card" href="produkciya/zelen/"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80" alt="Зелень"><span>Зелень</span></a>
+      <a class="cat-card" href="produkciya/ovoshchi/"><img src="img/photos/ovoshchi.jpg" alt="Овощи"><span>Овощи</span></a>
+      <a class="cat-card" href="produkciya/frukty/"><img src="img/photos/frukty.jpg" alt="Фрукты"><span>Фрукты</span></a>
+      <a class="cat-card" href="produkciya/yagody/"><img src="img/photos/yagody.jpg" alt="Ягоды"><span>Ягоды</span></a>
+      <a class="cat-card" href="produkciya/zelen/"><img src="img/photos/zelen.jpg" alt="Зелень"><span>Зелень</span></a>
     </div>
   </div>
 </section>
@@ -189,14 +189,14 @@ Save "index.html" (Wrap "ГринЭко — овощи и фрукты опто�
     <p class="section-kicker">Клиенты</p>
     <h2>Партнёры</h2>
     <div class="logo-grid" style="margin-top:16px">
-      <div class="partner"><img src="img/partners/magnit.svg" alt="Магнит"></div>
-      <div class="partner"><img src="img/partners/pyaterochka.svg" alt="Пятёрочка"></div>
-      <div class="partner"><img src="img/partners/chizhik.svg" alt="Чижик"></div>
-      <div class="partner"><img src="img/partners/perekrestok.svg" alt="Перекрёсток"></div>
-      <div class="partner"><img src="img/partners/lenta.svg" alt="Лента"></div>
-      <div class="partner"><img src="img/partners/metro.svg" alt="METRO"></div>
-      <div class="partner"><img src="img/partners/verny.svg" alt="Верный"></div>
-      <div class="partner"><img src="img/partners/dixy.svg" alt="Дикси"></div>
+      <div class="partner"><span class="brand-logo brand-magnit">МАГНИТ</span></div>
+      <div class="partner"><span class="brand-logo brand-pyaterochka"><i>5</i>Пятёрочка</span></div>
+      <div class="partner"><span class="brand-logo brand-chizhik">ЧИЖИК</span></div>
+      <div class="partner"><span class="brand-logo brand-perekrestok">ПЕРЕКРЁСТОК</span></div>
+      <div class="partner"><span class="brand-logo brand-lenta">ЛЕНТА</span></div>
+      <div class="partner"><span class="brand-logo brand-metro">METRO</span></div>
+      <div class="partner"><span class="brand-logo brand-verny">ВЕРНЫЙ</span></div>
+      <div class="partner"><span class="brand-logo brand-dixy">ДИКСИ</span></div>
     </div>
   </div>
 </section>

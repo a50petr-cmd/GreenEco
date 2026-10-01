@@ -12,7 +12,7 @@
       .map(function (p) {
         return (
           '<article class="product-card">' +
-          '<img src="' + p.image + '" alt="' + p.name + '">' +
+          '<img src="' + (p.image.indexOf("http") === 0 ? p.image : root + p.image) + '" alt="' + p.name + '" loading="lazy">' +
           '<div class="body"><span class="tag">' + p.categoryName + "</span>" +
           " <h3 style=\"margin:8px 0\"><a href=\"" + root + p.url + '">' + p.name + "</a></h3>" +
           '<p class="muted" style="min-height:44px">' + p.variety + "</p>" +

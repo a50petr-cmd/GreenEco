@@ -184,12 +184,27 @@ h2 {
 
 .partner {
   background: #fff; border: 1px solid var(--line); border-radius: 14px;
-  min-height: 84px; display: grid; place-items: center; font-weight: 800;
-  color: var(--muted); font-size: 0.82rem; text-align: center; padding: 10px 12px;
+  min-height: 84px; display: grid; place-items: center; padding: 10px 12px;
 }
-.partner img {
-  width: 100%; max-width: 200px; height: 52px; object-fit: contain;
+.brand-logo {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; height: 52px; border-radius: 10px;
+  font-weight: 800; letter-spacing: 0.04em; font-size: 0.78rem;
+  color: #fff; line-height: 1;
 }
+.brand-logo i {
+  font-style: normal; background: #fff; color: #E31E24;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 0.75rem;
+}
+.brand-magnit { background: #E30613; }
+.brand-pyaterochka { background: #E31E24; }
+.brand-chizhik { background: #F5C518; color: #1A1A1A; }
+.brand-perekrestok { background: #1B7A3D; font-size: 0.68rem; }
+.brand-lenta { background: #003DA5; box-shadow: inset 0 -8px 0 #E31E24; }
+.brand-metro { background: #FFCC00; color: #003087; outline: 8px solid #003087; outline-offset: -8px; }
+.brand-verny { background: #F36C21; }
+.brand-dixy { background: #FFD100; color: #E30613; }
 
 .regions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .regions span {

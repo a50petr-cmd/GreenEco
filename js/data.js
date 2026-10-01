@@ -55,7 +55,7 @@ window.GREENECO = {
       unit: "кг",
       popular: true,
       desc: "Тепличные и грунтовые томаты собственной селекции. Плотная мякоть, высокая лёжкость, стабильный калибр — под сети и HoReCa.",
-      image: "https://images.unsplash.com/photo-1546470427-22744c54e1e1?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/tomaty.jpg",
     },
     {
       id: "ogurcy",
@@ -80,7 +80,7 @@ window.GREENECO = {
       unit: "кг",
       popular: true,
       desc: "Хрустящие огурцы без горечи. Ежедневный съём, охлаждение на складе в день сбора.",
-      image: "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/ogurcy.jpg",
     },
     {
       id: "kartofel",
@@ -105,7 +105,7 @@ window.GREENECO = {
       unit: "кг",
       popular: true,
       desc: "Продовольственный картофель с собственных полей. Мойка и калибровка под заказ сети.",
-      image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/kartofel.jpg",
     },
     {
       id: "morkov",
@@ -130,7 +130,7 @@ window.GREENECO = {
       unit: "кг",
       popular: true,
       desc: "Сладкая морковь насыщенного цвета. Мытая и немытая, фасовка под розницу и общепит.",
-      image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/morkov.jpg",
     },
     {
       id: "svekla",
@@ -155,7 +155,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Столовая свёкла ровной формы, без round-дефектов. Подходит для переработки и розницы.",
-      image: "https://images.unsplash.com/photo-1570586437263-ab629facc394?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/svekla.jpg",
     },
     {
       id: "kapusta",
@@ -180,7 +180,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Плотные кочаны для хранения и свежего рынка. Ранняя и поздняя группы спелости.",
-      image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/kapusta.jpg",
     },
     {
       id: "luk",
@@ -205,7 +205,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Жёлтый и красный лук. Сушка, сортировка, стабильная шелуха для дальних перевозок.",
-      image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/luk.jpg",
     },
     {
       id: "perec",
@@ -230,7 +230,7 @@ window.GREENECO = {
       unit: "кг",
       popular: true,
       desc: "Толстостенный перец для сетей и кулинарии. Сортировка по цвету и калибру.",
-      image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/perec.jpg",
     },
     {
       id: "yabloki",
@@ -255,7 +255,7 @@ window.GREENECO = {
       unit: "кг",
       popular: true,
       desc: "Сад в предгорьях Кубани. Сортировка по цвету, воск по запросу, отгрузка из холодильника.",
-      image: "https://images.unsplash.com/photo-1560806887-1e4cd0b21094?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/yabloki.jpg",
     },
     {
       id: "grushi",
@@ -280,7 +280,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Сочные груши ручного съёма. Дозаривание под график клиента.",
-      image: "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/grushi.jpg",
     },
     {
       id: "slivy",
@@ -305,7 +305,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Плотная слива для свежего рынка и переработки. Сбор в технической и потребительской зрелости.",
-      image: "https://images.unsplash.com/photo-1501494010706-8e0d1cf63533?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/slivy.jpg",
     },
     {
       id: "klubnika",
@@ -330,7 +330,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Ягода утреннего сбора, охлаждение в течение 2 часов. Для ритейла и кондитерских.",
-      image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/klubnika.jpg",
     },
     {
       id: "malina",
@@ -355,7 +355,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Целая ягода без рассыпания. Отгрузка ночными рейсами в Центральный округ.",
-      image: "https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/malina.jpg",
     },
     {
       id: "ukrop",
@@ -380,7 +380,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Свежая зелень с гидропонных линий и открытого грунта. Ежедневные отгрузки.",
-      image: "https://images.unsplash.com/photo-1437913135140-944c1ee62782?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/ukrop.jpg",
     },
     {
       id: "petrushka",
@@ -405,7 +405,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Насыщенный цвет и аромат. Фасовка для кулинарии и розничных сетей.",
-      image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/petrushka.jpg",
     },
     {
       id: "salat",
@@ -430,7 +430,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Хрустящие салаты из теплиц. Промывка и охлаждение перед упаковкой.",
-      image: "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/salat.jpg",
     },
     {
       id: "luk-zelenyj",
@@ -455,7 +455,7 @@ window.GREENECO = {
       unit: "кг",
       popular: false,
       desc: "Ровное перо, белая ножка. Подходит для сетей и HoReCa, вакуумная упаковка по запросу.",
-      image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/luk-zelenyj.jpg",
     },
   ],
   news: [
@@ -464,35 +464,35 @@ window.GREENECO = {
       date: "18.09.2026",
       title: "Старт сбора яблок: Гала и Голден",
       excerpt: "Открыли сезон яблок ранних сортов. Объёмы до 200 тонн в неделю, сортировка 65–85 мм.",
-      image: "https://images.unsplash.com/photo-1570913149827-d2afd686b81a?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/garden.jpg",
     },
     {
       id: "novye-teplicy",
       date: "02.09.2026",
       title: "Запустили ещё 4 га зимних теплиц",
       excerpt: "Расширили мощности под томат и зелень — круглогодичные поставки без просадок объёма.",
-      image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/greenhouse.jpg",
     },
     {
       id: "ceny-oktyabr",
       date: "01.10.2026",
       title: "Обновление прайса на октябрь",
       excerpt: "Скорректировали оптовые цены на томат, перец и морковь. Актуальная таблица — в разделе «Цены».",
-      image: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/harvest.jpg",
     },
     {
       id: "logistika-cfo",
       date: "12.08.2026",
       title: "Свой рейс в Центральный округ дважды в неделю",
       excerpt: "Добавили регулярную фуру Краснодар — Москва / Тула / Воронеж. Срок 24–36 часов.",
-      image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80",
+      image: "img/photos/logistics.jpg",
     },
   ],
   categories: [
-    { id: "ovoshchi", name: "Овощи", url: "produkciya/ovoshchi/", image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80" },
-    { id: "frukty", name: "Фрукты", url: "produkciya/frukty/", image: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=80" },
-    { id: "yagody", name: "Ягоды", url: "produkciya/yagody/", image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=900&q=80" },
-    { id: "zelen", name: "Зелень", url: "produkciya/zelen/", image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80" },
+    { id: "ovoshchi", name: "Овощи", url: "produkciya/ovoshchi/", image: "img/photos/ovoshchi.jpg" },
+    { id: "frukty", name: "Фрукты", url: "produkciya/frukty/", image: "img/photos/frukty.jpg" },
+    { id: "yagody", name: "Ягоды", url: "produkciya/yagody/", image: "img/photos/yagody.jpg" },
+    { id: "zelen", name: "Зелень", url: "produkciya/zelen/", image: "img/photos/zelen.jpg" },
   ],
 };
 
