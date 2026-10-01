@@ -54,12 +54,15 @@ button, input, select, textarea { font-family: inherit; }
   color: var(--soil); font-weight: 800; letter-spacing: -0.03em;
   font-size: 1.05rem; flex-shrink: 0; white-space: nowrap;
 }
-.logo-mark {
-  width: 38px; height: 38px; border-radius: 50%;
-  font-size: 0.72rem; font-weight: 800;
-  background: linear-gradient(145deg, var(--moss), var(--leaf-dark));
-  display: grid; place-items: center; color: #fff;
-  box-shadow: 0 6px 16px rgba(47, 107, 69, 0.35);
+.logo img {
+  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+}
+.logo-text {
+  display: flex; flex-direction: column; line-height: 1.08;
+}
+.logo-text small {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--muted); text-transform: uppercase;
 }
 .nav { display: flex; align-items: center; gap: 4px; margin-left: auto; flex-wrap: wrap; }
 .nav a, .nav-drop > span {

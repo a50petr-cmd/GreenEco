@@ -13,7 +13,7 @@
     header.innerHTML =
       '<header class="header" id="header">' +
       '<div class="container header-inner">' +
-      '<a class="logo" href="' + href("index.html") + '"><span class="logo-mark">ГЭ</span> ' + C.brand + "</a>" +
+      '<a class="logo" href="' + href("index.html") + '"><img src="' + href("img/logo.svg") + "?v=" + (window.GREENECO.assetVersion || "") + '" alt="' + C.brand + '" width="42" height="42"><span class="logo-text">' + C.brand + "<small>овощи и фрукты</small></span></a>" +
       '<button class="burger" type="button" aria-label="Меню" id="burger">☰</button>' +
       '<nav class="nav">' +
       '<a href="' + href("index.html") + '">Главная</a>' +

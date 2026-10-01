@@ -9,7 +9,7 @@ vm.createContext(sandbox);
 vm.runInContext(dataSrc, sandbox);
 const PRODUCTS = sandbox.window.GREENECO.products;
 const NEWS = sandbox.window.GREENECO.news;
-const ASSET_V = sandbox.window.GREENECO.assetVersion || "20261002";
+const ASSET_V = sandbox.window.GREENECO.assetVersion || "20261003";
 
 function wrap({ title, desc, css, root, page, body, extraHead = "", extraScript = "" }) {
   const icon = css.replace("css/style.css", "favicon.svg");

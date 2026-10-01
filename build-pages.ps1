@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 $rootDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $rootDir) { $rootDir = (Get-Location).Path }
 
-$ASSET_V = "20261002"
+$ASSET_V = "20261003"
 
 function Wrap($title, $desc, $css, $root, $page, $body, $extraHead, $extraScript) {
   if (-not $extraHead) { $extraHead = "" }
