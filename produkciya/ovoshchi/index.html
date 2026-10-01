@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Овощи оптом — ГринЭко</title>
+  <meta name="description" content="Овощи оптом от производителя ГринЭко: томаты, огурцы, картофель, морковь, капуста, лук, перец.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" href="../../favicon.svg">
+</head>
+<body data-root="../../" data-page="category">
+<a class="skip" href="#main">К содержанию</a>
+<div id="site-header"></div>
+<main id="main">
+<div class="page-hero"><div class="container">
+  <p class="crumbs"><a href="../../index.html">Главная</a> / <a href="../">Продукция</a> / Овощи</p>
+  <h1 style="font-family:Fraunces,serif;font-size:clamp(2rem,4vw,3rem)">Овощи оптом</h1>
+  <p class="muted">Томаты, огурцы, картофель, морковь, свёкла, капуста, лук, перец — с поля и из теплиц.</p>
+  <div class="filters">
+    <select id="f-season"><option value="">Сезонность</option><option value="zima">Зима</option><option value="vesna">Весна</option><option value="leto">Лето</option><option value="osen">Осень</option></select>
+    <select id="f-cal"><option value="">Калибр</option><option value="sredniy">Средний</option><option value="krupnyy">Крупный</option></select>
+    <select id="f-pack"><option value="">Упаковка</option><option value="setka">Сетка</option><option value="gofra">Гофрокороб</option><option value="lotok">Лоток</option><option value="yashik">Ящик</option><option value="vakuum">Вакуум</option><option value="meshok">Мешок</option><option value="bigbag">Биг-бэг</option></select>
+    <select id="f-sort"><option value="name">По названию</option><option value="price-asc">Цена ↑</option><option value="price-desc">Цена ↓</option></select>
+  </div>
+</div></div>
+<section><div class="container"><div class="card-grid" id="catalog" data-category="ovoshchi"></div></div></section>
+</main>
+<div id="site-footer"></div>
+<script src="../../js/data.js"></script>
+<script src="../../js/site.js"></script>
+<script src="../../js/catalog.js"></script>
+<script src="../../js/catalog-page.js"></script>
+</body>
+</html>

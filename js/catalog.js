@@ -1,0 +1,37 @@
+(function () {
+  const products = window.GREENECO.applyPrices(window.GREENECO.products);
+  const root = document.body.getAttribute("data-root") || "";
+
+  function money(n) {
+    return new Intl.NumberFormat("ru-RU").format(n) + " ₽";
+  }
+
+  window.GREENECO.renderCards = function (el, list) {
+    if (!el) return;
+    el.innerHTML = list
+      .map(function (p) {
+        return (
+          '<article class="product-card">' +
+          '<img src="' + p.image + '" alt="' + p.name + '">' +
+          '<div class="body"><span class="tag">' + p.categoryName + "</span>" +
+          " <h3 style=\"margin:8px 0\"><a href=\"" + root + p.url + '">' + p.name + "</a></h3>" +
+          '<p class="muted" style="min-height:44px">' + p.variety + "</p>" +
+          '<p class="price">' + money(p.priceKg) + " <small>/ кг · опт</small></p>" +
+          '<p class="muted" style="font-size:.8rem;margin:6px 0">Обновлено ' + window.GREENECO.priceDate() + "</p>" +
+          '<button class="btn btn-dark btn-sm js-lead" type="button" data-product="' + p.name + '">Оставить заявку</button>' +
+          "</div></article>"
+        );
+      })
+      .join("");
+    el.querySelectorAll(".js-lead").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const modal = document.getElementById("lead-modal");
+        modal.querySelector('[name="product"]').value = btn.getAttribute("data-product");
+        modal.classList.add("open");
+      });
+    });
+  };
+
+  window.GREENECO.money = money;
+  window.GREENECO.catalog = products;
+})();
