@@ -9,6 +9,7 @@ vm.createContext(sandbox);
 vm.runInContext(dataSrc, sandbox);
 const PRODUCTS = sandbox.window.GREENECO.products;
 const NEWS = sandbox.window.GREENECO.news;
+const ASSET_V = sandbox.window.GREENECO.assetVersion || "20261002";
 
 function wrap({ title, desc, css, root, page, body, extraHead = "", extraScript = "" }) {
   const icon = css.replace("css/style.css", "favicon.svg");
@@ -19,11 +20,12 @@ function wrap({ title, desc, css, root, page, body, extraHead = "", extraScript 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
   <meta name="description" content="${desc}">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${css}">
-  <link rel="icon" href="${icon}">
+  <link rel="stylesheet" href="${css}?v=${ASSET_V}">
+  <link rel="icon" href="${icon}?v=${ASSET_V}">
   ${extraHead}
 </head>
 <body data-root="${root}" data-page="${page}">
@@ -33,9 +35,9 @@ function wrap({ title, desc, css, root, page, body, extraHead = "", extraScript 
 ${body}
 </main>
 <div id="site-footer"></div>
-<script src="${root}js/data.js"></script>
-<script src="${root}js/site.js"></script>
-<script src="${root}js/catalog.js"></script>
+<script src="${root}js/data.js?v=${ASSET_V}"></script>
+<script src="${root}js/site.js?v=${ASSET_V}"></script>
+<script src="${root}js/catalog.js?v=${ASSET_V}"></script>
 ${extraScript}
 </body>
 </html>
@@ -441,7 +443,7 @@ write(
     css: "css/style.css",
     root: "",
     page: "prices",
-    extraScript: `<script src="js/prices.js"></script>`,
+    extraScript: `<script src="js/prices.js?v=${ASSET_V}"></script>`,
     body: `
 <div class="page-hero"><div class="container">
   <p class="crumbs"><a href="index.html">Главная</a> / Цены</p>
@@ -705,7 +707,7 @@ write(
     css: "../css/style.css",
     root: "../",
     page: "admin",
-    extraScript: `<script src="../js/admin.js"></script>`,
+    extraScript: `<script src="../js/admin.js?v=${ASSET_V}"></script>`,
     body: `
 <div class="page-hero"><div class="container">
   <p class="crumbs"><a href="../index.html">Главная</a> / Админка цен</p>

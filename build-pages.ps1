@@ -2,6 +2,8 @@ $ErrorActionPreference = "Stop"
 $rootDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $rootDir) { $rootDir = (Get-Location).Path }
 
+$ASSET_V = "20261002"
+
 function Wrap($title, $desc, $css, $root, $page, $body, $extraHead, $extraScript) {
   if (-not $extraHead) { $extraHead = "" }
   if (-not $extraScript) { $extraScript = "" }
@@ -14,11 +16,12 @@ function Wrap($title, $desc, $css, $root, $page, $body, $extraHead, $extraScript
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$title</title>
   <meta name="description" content="$desc">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="$css">
-  <link rel="icon" href="$icon">
+  <link rel="stylesheet" href="${css}?v=$ASSET_V">
+  <link rel="icon" href="${icon}?v=$ASSET_V">
   $extraHead
 </head>
 <body data-root="$root" data-page="$page">
@@ -28,9 +31,9 @@ function Wrap($title, $desc, $css, $root, $page, $body, $extraHead, $extraScript
 $body
 </main>
 <div id="site-footer"></div>
-<script src="${root}js/data.js"></script>
-<script src="${root}js/site.js"></script>
-<script src="${root}js/catalog.js"></script>
+<script src="${root}js/data.js?v=$ASSET_V"></script>
+<script src="${root}js/site.js?v=$ASSET_V"></script>
+<script src="${root}js/catalog.js?v=$ASSET_V"></script>
 $extraScript
 </body>
 </html>
