@@ -387,8 +387,8 @@ PRODUCTS.forEach((p) => {
     wrap({
       title: `${p.seo} — ${p.name} от ГринЭко`,
       desc: `${p.name} оптом: ${p.variety}. ${p.desc} Цена от ${p.priceKg} ₽/кг.`,
-      css: "../../../css/style.css",
-      root: "../../../",
+      css: "../../css/style.css",
+      root: "../../",
       page: "product",
       extraHead: schema(p),
       extraScript: `<script>
@@ -403,12 +403,12 @@ PRODUCTS.forEach((p) => {
 </script>`,
       body: `
 <div class="page-hero"><div class="container">
-  <p class="crumbs"><a href="../../../index.html">Главная</a> / <a href="../../">Продукция</a> / <a href="../">${p.categoryName}</a> / ${p.name}</p>
+  <p class="crumbs"><a href="../../index.html">Главная</a> / <a href="../../produkciya/">Продукция</a> / <a href="../">${p.categoryName}</a> / ${p.name}</p>
   <h1 style="font-family:Fraunces,serif;font-size:clamp(2rem,4vw,3rem)">${p.name} оптом</h1>
   <p class="muted">${p.seo}. Сорт, калибр, упаковка и актуальная цена.</p>
 </div></div>
 <section><div class="container product-layout">
-  <img src="../../../${p.image}" alt="${p.name}" style="border-radius:24px;width:100%;height:420px;object-fit:cover">
+  <img src="../../${p.image}" alt="${p.name}" style="border-radius:24px;width:100%;height:420px;object-fit:cover">
   <div>
     <span class="tag">${p.categoryName}</span>
     <p style="margin-top:12px">${p.desc}</p>
@@ -426,7 +426,7 @@ PRODUCTS.forEach((p) => {
     <p class="muted" style="margin:8px 0">Цена обновлена <span data-price-date></span></p>
     <div class="hero-actions">
       <button class="btn btn-primary js-lead" type="button" data-product="${p.name}">Оставить заявку</button>
-      <a class="btn btn-dark" href="../../../ceny.html">Запросить прайс</a>
+      <a class="btn btn-dark" href="../../ceny.html">Запросить прайс</a>
     </div>
   </div>
 </div></section>
