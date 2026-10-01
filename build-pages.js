@@ -172,10 +172,10 @@ write(
     </div>
     <div>
       <h2>Контакты</h2>
-      <p><a href="tel:+78612104590">+7 (861) 210-45-90</a> — отдел продаж</p>
-      <p><a href="tel:+78612104591">+7 (861) 210-45-91</a> — бухгалтерия</p>
+      <p><a href="tel:666666">666-666</a> — отдел продаж</p>
+      <p><a href="tel:666666">666-666</a> — бухгалтерия</p>
       <p><a href="mailto:sales@greeneco.ru">sales@greeneco.ru</a></p>
-      <p><a href="https://wa.me/78612104590" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/greeneco_sales" target="_blank" rel="noopener">Telegram</a></p>
+      <p><a href="https://wa.me/666666" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/greeneco_sales" target="_blank" rel="noopener">Telegram</a></p>
       <p class="muted" style="margin-top:12px">Офис: Краснодар, ул. Рашпилевская, 106<br>Склад: ст. Динская, ул. Промышленная, 14<br>Пн–Сб: 8:00–18:00</p>
     </div>
   </div>
@@ -567,10 +567,10 @@ write(
   <div>
     <p><strong>Офис:</strong> 350000, г. Краснодар, ул. Рашпилевская, 106, оф. 412</p>
     <p><strong>Склад:</strong> 353204, ст. Динская, ул. Промышленная, 14</p>
-    <p>Отдел продаж: <a href="tel:+78612104590">+7 (861) 210-45-90</a></p>
-    <p>Бухгалтерия: <a href="tel:+78612104591">+7 (861) 210-45-91</a></p>
+    <p>Отдел продаж: <a href="tel:666666">666-666</a></p>
+    <p>Бухгалтерия: <a href="tel:666666">666-666</a></p>
     <p>Email: <a href="mailto:info@greeneco.ru">info@greeneco.ru</a>, <a href="mailto:sales@greeneco.ru">sales@greeneco.ru</a></p>
-    <p><a href="https://wa.me/78612104590">WhatsApp</a> · <a href="https://t.me/greeneco_sales">Telegram</a></p>
+    <p><a href="https://wa.me/666666">WhatsApp</a> · <a href="https://t.me/greeneco_sales">Telegram</a></p>
     <p class="muted">Пн–Сб 8:00–18:00</p>
     <h2 style="margin-top:24px">Реквизиты</h2>
     <p class="muted">ООО «ГринЭко», ИНН 2309145678, КПП 230901001, ОГРН 1232300005678</p>
@@ -689,7 +689,7 @@ write(
     page: "thanks",
     body: `<section><div class="container" style="padding:80px 0;text-align:center;max-width:640px">
 <h1 style="font-family:Fraunces,serif;font-size:2.4rem">Заявка отправлена</h1>
-<p class="muted" style="margin:16px 0 24px">Менеджер отдела продаж перезвонит в рабочие часы (пн–сб 8:00–18:00). Если вопрос срочный — звоните <a href="tel:+78612104590">+7 (861) 210-45-90</a>.</p>
+<p class="muted" style="margin:16px 0 24px">Менеджер отдела продаж перезвонит в рабочие часы (пн–сб 8:00–18:00). Если вопрос срочный — звоните <a href="tel:666666">666-666</a>.</p>
 <a class="btn btn-primary" href="index.html">На главную</a>
 <a class="btn btn-dark" href="ceny.html">Смотреть прайс</a>
 </div></section>`,
