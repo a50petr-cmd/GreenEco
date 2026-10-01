@@ -58,6 +58,7 @@
       "<div><h4>Контакты</h4><ul>" +
       '<li><a href="' + C.phoneSalesHref + '">' + C.phoneSales + "</a> — продажи</li>" +
       '<li><a href="mailto:' + C.emailSales + '">' + C.emailSales + "</a></li>" +
+      '<li><a href="mailto:' + C.email2 + '">' + C.email2 + "</a></li>" +
       '<li><a href="' + C.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a></li>' +
       "</ul></div></div>" +
       '<div class="footer-bottom"><span>© 2021–2026 ' + C.brand + "</span><span>" + C.legalAddress + "</span></div>" +

@@ -174,6 +174,7 @@ write(
       <h2>Контакты</h2>
       <p><a href="tel:+79281221355">+7 (928) 122-13-55</a></p>
       <p><a href="mailto:grineko.ooo@mail.ru">grineko.ooo@mail.ru</a></p>
+      <p><a href="mailto:kompaniagrineko@yandex.ru">kompaniagrineko@yandex.ru</a></p>
       <p><a href="https://wa.me/79281221355" target="_blank" rel="noopener">WhatsApp</a></p>
       <p class="muted" style="margin-top:12px">ООО «ГРИН ЭКО»<br>123182, г. Москва, Волоколамское ш., д. 24 к. 1, помещ. 699<br>Пн–Сб: 8:00–18:00</p>
     </div>
@@ -255,7 +256,7 @@ write(
   <p>Юр. адрес: 123182, город Москва, Волоколамское ш., д. 24 к. 1, помещ. 699</p>
   <p>Директор: Татьяна Михайловна Суханова (на основании Устава)</p>
   <p>Р/с 40702810926210002713 в ФИЛИАЛЕ «РОСТОВСКИЙ» АО «АЛЬФА-БАНК», к/с 30101810500000000207, БИК 046015207</p>
-  <p>Тел.: <a href="tel:+79281221355">+7 (928) 122-13-55</a> · <a href="mailto:grineko.ooo@mail.ru">grineko.ooo@mail.ru</a></p>
+  <p>Тел.: <a href="tel:+79281221355">+7 (928) 122-13-55</a> · <a href="mailto:grineko.ooo@mail.ru">grineko.ooo@mail.ru</a> · <a href="mailto:kompaniagrineko@yandex.ru">kompaniagrineko@yandex.ru</a></p>
 </div></section>
 `,
   })
@@ -567,7 +568,7 @@ write(
   <div>
     <p><strong>Адрес:</strong> 123182, город Москва, Волоколамское ш., д. 24 к. 1, помещ. 699</p>
     <p>Телефон: <a href="tel:+79281221355">+7 (928) 122-13-55</a></p>
-    <p>Email: <a href="mailto:grineko.ooo@mail.ru">grineko.ooo@mail.ru</a></p>
+    <p>Email: <a href="mailto:grineko.ooo@mail.ru">grineko.ooo@mail.ru</a>, <a href="mailto:kompaniagrineko@yandex.ru">kompaniagrineko@yandex.ru</a></p>
     <p><a href="https://wa.me/666666">WhatsApp</a> · <a href="https://t.me/greeneco_sales">Telegram</a></p>
     <p class="muted">Пн–Сб 8:00–18:00</p>
     <h2 style="margin-top:24px">Реквизиты</h2>
@@ -655,7 +656,7 @@ write(
 <section><div class="container" style="max-width:800px">
 <p>ООО «ГРИН ЭКО» (ИНН 2348042571) обрабатывает персональные данные, которые вы оставляете в формах сайта: имя, телефон, email, состав заявки.</p>
 <p style="margin-top:12px">Цели: обработка запросов на поставку, направление прайса, связь по договору. Основание — согласие субъекта и исполнение преддоговорных действий.</p>
-<p style="margin-top:12px">Данные не передаются третьим лицам, кроме перевозчиков и операторов ЭДО в рамках сделки. Срок хранения заявок — 3 года. Вы можете запросить удаление на grineko.ooo@mail.ru.</p>
+<p style="margin-top:12px">Данные не передаются третьим лицам, кроме перевозчиков и операторов ЭДО в рамках сделки. Срок хранения заявок — 3 года. Вы можете запросить удаление на grineko.ooo@mail.ru или kompaniagrineko@yandex.ru.</p>
 </div></section>`,
   })
 );

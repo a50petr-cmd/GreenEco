@@ -23,6 +23,7 @@ window.GREENECO = {
     telegram: "https://wa.me/79281221355",
     email: "grineko.ooo@mail.ru",
     emailSales: "grineko.ooo@mail.ru",
+    email2: "kompaniagrineko@yandex.ru",
     hours: "Пн–Сб: 8:00–18:00",
     priceUpdated: "01.10.2026",
     hectares: "1 240",
