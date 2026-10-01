@@ -13,7 +13,7 @@
     header.innerHTML =
       '<header class="header" id="header">' +
       '<div class="container header-inner">' +
-      '<a class="logo" href="' + href("index.html") + '"><span class="logo-mark">G</span> ГринЭко</a>' +
+      '<a class="logo" href="' + href("index.html") + '"><span class="logo-mark">ГЭ</span> ' + C.brand + "</a>" +
       '<button class="burger" type="button" aria-label="Меню" id="burger">☰</button>' +
       '<nav class="nav">' +
       '<a href="' + href("index.html") + '">Главная</a>' +
@@ -59,9 +59,8 @@
       '<li><a href="' + C.phoneSalesHref + '">' + C.phoneSales + "</a> — продажи</li>" +
       '<li><a href="mailto:' + C.emailSales + '">' + C.emailSales + "</a></li>" +
       '<li><a href="' + C.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a></li>' +
-      '<li><a href="' + C.telegram + '" target="_blank" rel="noopener">Telegram</a></li>' +
       "</ul></div></div>" +
-      '<div class="footer-bottom"><span>© 2012–2026 ГринЭко</span><span>' + C.legalAddress + "</span></div>" +
+      '<div class="footer-bottom"><span>© 2021–2026 ' + C.brand + "</span><span>" + C.legalAddress + "</span></div>" +
       "</div></footer>";
   }
 

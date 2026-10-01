@@ -52,10 +52,11 @@ button, input, select, textarea { font-family: inherit; }
 .logo {
   display: flex; align-items: center; gap: 10px;
   color: var(--soil); font-weight: 800; letter-spacing: -0.03em;
-  font-size: 1.2rem; flex-shrink: 0;
+  font-size: 1.05rem; flex-shrink: 0; white-space: nowrap;
 }
 .logo-mark {
   width: 38px; height: 38px; border-radius: 50%;
+  font-size: 0.72rem; font-weight: 800;
   background: linear-gradient(145deg, var(--moss), var(--leaf-dark));
   display: grid; place-items: center; color: #fff;
   box-shadow: 0 6px 16px rgba(47, 107, 69, 0.35);
