@@ -189,12 +189,14 @@ Save "index.html" (Wrap "ГринЭко — овощи и фрукты опто�
     <p class="section-kicker">Клиенты</p>
     <h2>Партнёры</h2>
     <div class="logo-grid" style="margin-top:16px">
-      <div class="partner">Сеть «Зелёный ряд»</div>
-      <div class="partner">HoReCa Юг</div>
-      <div class="partner">Агроопт</div>
-      <div class="partner">ФудСервис 24</div>
-      <div class="partner">Рынок «Привоз»</div>
-      <div class="partner">КубаньТрейд</div>
+      <div class="partner"><img src="img/partners/magnit.svg" alt="Магнит"></div>
+      <div class="partner"><img src="img/partners/pyaterochka.svg" alt="Пятёрочка"></div>
+      <div class="partner"><img src="img/partners/chizhik.svg" alt="Чижик"></div>
+      <div class="partner"><img src="img/partners/perekrestok.svg" alt="Перекрёсток"></div>
+      <div class="partner"><img src="img/partners/lenta.svg" alt="Лента"></div>
+      <div class="partner"><img src="img/partners/metro.svg" alt="METRO"></div>
+      <div class="partner"><img src="img/partners/verny.svg" alt="Верный"></div>
+      <div class="partner"><img src="img/partners/dixy.svg" alt="Дикси"></div>
     </div>
   </div>
 </section>
