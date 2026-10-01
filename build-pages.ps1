@@ -189,14 +189,14 @@ Save "index.html" (Wrap "ГринЭко — овощи и фрукты опто�
     <p class="section-kicker">Клиенты</p>
     <h2>Партнёры</h2>
     <div class="logo-grid" style="margin-top:16px">
-      <div class="partner"><span class="brand-logo brand-magnit">МАГНИТ</span></div>
-      <div class="partner"><span class="brand-logo brand-pyaterochka"><i>5</i>Пятёрочка</span></div>
-      <div class="partner"><span class="brand-logo brand-chizhik">ЧИЖИК</span></div>
-      <div class="partner"><span class="brand-logo brand-perekrestok">ПЕРЕКРЁСТОК</span></div>
-      <div class="partner"><span class="brand-logo brand-lenta">ЛЕНТА</span></div>
-      <div class="partner"><span class="brand-logo brand-metro">METRO</span></div>
-      <div class="partner"><span class="brand-logo brand-verny">ВЕРНЫЙ</span></div>
-      <div class="partner"><span class="brand-logo brand-dixy">ДИКСИ</span></div>
+      <div class="partner"><img src="img/partners/magnit.svg" alt="Магнит" width="200" height="40"></div>
+      <div class="partner"><img src="img/partners/pyaterochka.svg" alt="Пятёрочка" width="56" height="56"></div>
+      <div class="partner"><img src="img/partners/chizhik.svg" alt="Чижик" width="70" height="52"></div>
+      <div class="partner"><img src="img/partners/perekrestok.png" alt="Перекрёсток" width="200" height="48"></div>
+      <div class="partner"><img src="img/partners/lenta.png" alt="Лента" width="200" height="48"></div>
+      <div class="partner"><img src="img/partners/metro.svg" alt="METRO" width="120" height="56"></div>
+      <div class="partner"><img src="img/partners/verny.png" alt="Верный" width="180" height="56"></div>
+      <div class="partner"><img src="img/partners/dixy.svg" alt="Дикси" width="180" height="48"></div>
     </div>
   </div>
 </section>
