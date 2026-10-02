@@ -220,7 +220,7 @@ Save "index.html" (Wrap "ГринЭко — овощи и фрукты опто�
     <div>
       <h2>Контакты</h2>
       <p><a href="tel:+79281221355">+7 (928) 122-13-55</a></p>
-      <p><a href="mailto:grineko.ooo@mail.ru">grineko.ooo@mail.ru</a></p>
+      <p><a href="mailto:kompaniagrineko@yandex.ru">kompaniagrineko@yandex.ru</a></p>
       <p><a href="mailto:kompaniagrineko@yandex.ru">kompaniagrineko@yandex.ru</a></p>
       <p><a href="https://wa.me/79281221355" target="_blank" rel="noopener">WhatsApp</a></p>
       <p class="muted" style="margin-top:12px">ООО «ГРИН ЭКО»<br>123182, г. Москва, Волоколамское ш., д. 24 к. 1, помещ. 699<br>Пн–Сб: 8:00–18:00</p>
