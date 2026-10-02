@@ -81,9 +81,11 @@
     '<form class="form js-lead-form" style="margin-top:14px">' +
     '<label>Имя</label><input name="name" required placeholder="Как к вам обращаться">' +
     '<label>Телефон</label><input name="phone" type="tel" required placeholder="+7 (___) ___-__-__">' +
-    '<label>Товар</label><input name="product" placeholder="Томаты, яблоки…">' +
+    '<label>Товар</label><input name="product" placeholder="Лук, картофель, морковь…">' +
     '<label>Объём</label><input name="volume" placeholder="Например, 3 тонны / неделя">' +
     '<label>Комментарий</label><textarea name="comment" rows="3"></textarea>' +
+    '<input type="text" name="_honey" class="lead-honey" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+    '<p class="js-lead-error" role="alert" hidden></p>' +
     '<button class="btn btn-primary" type="submit">Отправить</button>' +
     '<button class="btn btn-ghost" type="button" id="lead-close">Закрыть</button>' +
     "</form></div>";
@@ -103,16 +105,117 @@
     modal.classList.remove("open");
   });
 
+  function backupLead(data) {
+    try {
+      const list = JSON.parse(localStorage.getItem("greeneco_leads") || "[]");
+      list.push(Object.assign({ at: new Date().toISOString() }, data));
+      localStorage.setItem("greeneco_leads", JSON.stringify(list));
+    } catch (err) {}
+  }
+
+  function ensureLeadExtras(form) {
+    if (!form.querySelector('[name="_honey"]')) {
+      const honey = document.createElement("input");
+      honey.type = "text";
+      honey.name = "_honey";
+      honey.className = "lead-honey";
+      honey.tabIndex = -1;
+      honey.autocomplete = "off";
+      honey.setAttribute("aria-hidden", "true");
+      honey.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0";
+      form.appendChild(honey);
+    }
+    if (!form.querySelector(".js-lead-error")) {
+      const err = document.createElement("p");
+      err.className = "js-lead-error";
+      err.setAttribute("role", "alert");
+      err.hidden = true;
+      err.style.color = "#b42318";
+      err.style.fontSize = "0.9rem";
+      err.style.margin = "8px 0";
+      const submit = form.querySelector('[type="submit"]');
+      form.insertBefore(err, submit || null);
+    }
+  }
+
   function handleLead(form) {
+    ensureLeadExtras(form);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      try {
-        const list = JSON.parse(localStorage.getItem("greeneco_leads") || "[]");
-        list.push(Object.assign({ at: new Date().toISOString() }, data));
-        localStorage.setItem("greeneco_leads", JSON.stringify(list));
-      } catch (err) {}
-      window.location.href = href("spasibo.html");
+      const fd = new FormData(form);
+      if (String(fd.get("_honey") || "").trim()) return;
+
+      const data = Object.fromEntries(fd.entries());
+      delete data._honey;
+
+      const errEl = form.querySelector(".js-lead-error");
+      const submitBtn = form.querySelector('[type="submit"]');
+      const submitLabel = submitBtn ? submitBtn.textContent : "";
+
+      function showError(msg) {
+        if (errEl) {
+          errEl.textContent = msg;
+          errEl.hidden = false;
+        }
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Отправка…";
+      }
+      if (errEl) errEl.hidden = true;
+
+      const to = C.leadEmail || C.email2 || "kompaniagrineko@yandex.ru";
+      const payload = Object.assign({}, data, {
+        _subject: "Заявка с сайта «" + C.brand + "»",
+        _captcha: "false",
+        _template: "table",
+        _url: location.href,
+        page: page || document.title,
+        sent_at: new Date().toISOString(),
+      });
+
+      fetch("https://formsubmit.co/ajax/" + encodeURIComponent(to), {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res.json().catch(function () {
+            return { success: "false", message: "Некорректный ответ сервера" };
+          });
+        })
+        .then(function (res) {
+          const ok = res && (res.success === true || res.success === "true");
+          if (!ok) {
+            throw new Error((res && res.message) || "Ошибка отправки");
+          }
+          backupLead(data);
+          window.location.href = href("spasibo.html");
+        })
+        .catch(function (err) {
+          backupLead(data);
+          const msg = String((err && err.message) || err || "");
+          if (/activation|activate/i.test(msg)) {
+            showError(
+              "Первый раз нужно подтвердить почту: откройте письмо от FormSubmit на " +
+                to +
+                " и нажмите «Activate Form». Затем отправьте заявку снова."
+            );
+          } else {
+            showError(
+              "Не удалось отправить заявку автоматически. Позвоните " +
+                C.phoneSales +
+                " или напишите на " +
+                to +
+                "."
+            );
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitLabel;
+          }
+        });
     });
   }
   document.querySelectorAll(".js-lead-form").forEach(handleLead);

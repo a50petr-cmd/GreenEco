@@ -1,5 +1,5 @@
 window.GREENECO = {
-  assetVersion: "20261008",
+  assetVersion: "20261009",
   catalogSheetUrl:
     "https://docs.google.com/spreadsheets/d/1J47q-2lwerjOfMab3fmdZXwtmDRb9LTtl1wdNDoGIlg/export?format=csv",
   company: {
@@ -29,6 +29,7 @@ window.GREENECO = {
     email: "grineko.ooo@mail.ru",
     emailSales: "grineko.ooo@mail.ru",
     email2: "kompaniagrineko@yandex.ru",
+    leadEmail: "kompaniagrineko@yandex.ru",
     hours: "Пн–Сб: 8:00–18:00",
     priceUpdated: "02.10.2026",
     hectares: "1 240",
