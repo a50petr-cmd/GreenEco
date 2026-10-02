@@ -1,5 +1,5 @@
 window.GREENECO = {
-  assetVersion: "20261006",
+  assetVersion: "20261007",
   company: {
     name: "ООО «ГРИН ЭКО»",
     fullName: "Общество с ограниченной ответственностью «ГРИН ЭКО»",
