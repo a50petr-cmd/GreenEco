@@ -24,9 +24,6 @@
       '<div class="nav-drop"><a href="' + href("produkciya/") + '">Продукция</a><div class="nav-drop-menu">' +
       '<a href="' + href("produkciya/") + '">Весь каталог</a>' +
       '<a href="' + href("produkciya/ovoshchi/") + '">Овощи</a>' +
-      '<a href="' + href("produkciya/frukty/") + '">Фрукты</a>' +
-      '<a href="' + href("produkciya/yagody/") + '">Ягоды</a>' +
-      '<a href="' + href("produkciya/zelen/") + '">Зелень</a>' +
       "</div></div>" +
       '<a href="' + href("ceny.html") + '">Цены</a>' +
       '<a href="' + href("sotrudnichestvo.html") + '">Сотрудничество</a>' +
@@ -123,7 +120,65 @@
   window.GREENECO.path = href;
   window.GREENECO.page = page;
 
-  document.querySelectorAll("[data-price-date]").forEach(function (el) {
-    el.textContent = window.GREENECO.priceDate();
+  function refreshPriceDates() {
+    document.querySelectorAll("[data-price-date]").forEach(function (el) {
+      el.textContent = window.GREENECO.priceDate();
+    });
+  }
+  refreshPriceDates();
+
+  var req = document.getElementById("company-requisites");
+  if (req) {
+    req.innerHTML =
+      "<p>" +
+      C.name +
+      " · ИНН " +
+      C.inn +
+      " · КПП " +
+      C.kpp +
+      " · ОГРН " +
+      C.ogrn +
+      " · ОКПО " +
+      C.okpo +
+      "</p>" +
+      "<p>Юр. адрес: " +
+      C.legalAddress +
+      "</p>" +
+      "<p>Директор: " +
+      C.director +
+      " (на основании Устава)</p>" +
+      "<p>Р/с " +
+      C.rs +
+      " в " +
+      C.bank +
+      ", к/с " +
+      C.ks +
+      ", БИК " +
+      C.bik +
+      "</p>" +
+      '<p>Тел.: <a href="' +
+      C.phoneSalesHref +
+      '">' +
+      C.phoneSales +
+      '</a> · <a href="mailto:' +
+      C.email +
+      '">' +
+      C.email +
+      '</a> · <a href="mailto:' +
+      C.email2 +
+      '">' +
+      C.email2 +
+      "</a></p>";
+  }
+  document.querySelectorAll(".js-company-address").forEach(function (el) {
+    el.innerHTML = C.name + "<br>" + C.legalAddress + "<br>" + C.hours;
   });
+  document.querySelectorAll(".js-company-id").forEach(function (el) {
+    el.textContent = C.name + ", ИНН " + C.inn + ", КПП " + C.kpp + ", ОГРН " + C.ogrn;
+  });
+
+  if (window.GREENECO.whenCatalogReady) {
+    window.GREENECO.whenCatalogReady(refreshPriceDates);
+    document.addEventListener("greeneco-catalog-updated", refreshPriceDates);
+  }
 })();

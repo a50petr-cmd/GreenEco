@@ -1,5 +1,4 @@
 (function () {
-  const products = window.GREENECO.applyPrices(window.GREENECO.products);
   const root = window.GREENECO.base != null ? window.GREENECO.base : (document.body.getAttribute("data-root") || "");
 
   function money(n) {
@@ -39,5 +38,4 @@
   };
 
   window.GREENECO.money = money;
-  window.GREENECO.catalog = products;
 })();

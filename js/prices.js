@@ -1,8 +1,10 @@
 (function () {
-  const products = window.GREENECO.applyPrices(window.GREENECO.products);
   const money = window.GREENECO.money;
   const table = document.getElementById("price-table");
-  if (table) {
+
+  function renderTable() {
+    if (!table) return;
+    const products = window.GREENECO.catalog || window.GREENECO.applyPrices(window.GREENECO.products);
     table.innerHTML =
       "<thead><tr><th>Товар</th><th>Категория</th><th>Опт, ₽/кг</th><th>Мелкий опт, ₽/кг</th><th>Розница, ₽/кг</th><th>Опт, ₽/т</th><th>Объём</th></tr></thead><tbody>" +
       products
@@ -34,6 +36,7 @@
   }
 
   function csv() {
+    const products = window.GREENECO.catalog || window.GREENECO.applyPrices(window.GREENECO.products);
     const rows = [["Товар", "Категория", "Опт кг", "Мелкий опт кг", "Розница кг", "Опт тонна", "Объём", "Дата"]];
     const date = window.GREENECO.priceDate();
     products.forEach(function (p) {
@@ -54,6 +57,11 @@
     a.download = "GreenEco-price-" + date.replace(/\./g, "-") + ".csv";
     a.click();
   }
+
+  if (window.GREENECO.whenCatalogReady) {
+    window.GREENECO.whenCatalogReady(renderTable);
+    document.addEventListener("greeneco-catalog-updated", renderTable);
+  } else renderTable();
 
   const dl = document.getElementById("dl-csv");
   if (dl) dl.addEventListener("click", csv);

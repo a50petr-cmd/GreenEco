@@ -29,5 +29,6 @@
     var el = document.getElementById(id);
     if (el) el.addEventListener("change", apply);
   });
-  apply();
+  window.GREENECO.whenCatalogReady(apply);
+  document.addEventListener("greeneco-catalog-updated", apply);
 })();
