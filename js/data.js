@@ -1,5 +1,5 @@
 window.GREENECO = {
-  assetVersion: "20261015",
+  assetVersion: "20261016",
   catalogSheetUrl:
     "https://docs.google.com/spreadsheets/d/1J47q-2lwerjOfMab3fmdZXwtmDRb9LTtl1wdNDoGIlg/export?format=csv",
   company: {
