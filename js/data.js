@@ -1,5 +1,5 @@
 window.GREENECO = {
-  assetVersion: "20261011",
+  assetVersion: "20261012",
   catalogSheetUrl:
     "https://docs.google.com/spreadsheets/d/1J47q-2lwerjOfMab3fmdZXwtmDRb9LTtl1wdNDoGIlg/export?format=csv",
   company: {
@@ -14,7 +14,7 @@ window.GREENECO = {
     legalAddress:
       "364059, Чеченская Республика, г.о. город Грозный, г. Грозный, р-н Висаитовский, ул. имени Вахи Алиева, зд. 74А, офис 37",
     warehouse: "Дербент, Республика Дагестан",
-    warehouseNote: "Основной склад — Дербент, Республика Дагестан. Есть склады меньше.",
+    warehouseNote: "Основной склад — Дербент, Республика Дагестан. Есть склады в Москве.",
     mapEmbed:
       "https://yandex.ru/map-widget/v1/?ll=48.2908%2C42.0578&z=12&pt=48.2908%2C42.0578%2Cpm2rdm&text=%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82",
     bank: "ФИЛИАЛ «РОСТОВСКИЙ» АО «АЛЬФА-БАНК»",

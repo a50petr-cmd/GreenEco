@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <script>(function(){if((location.hostname||"").indexOf("github.io")<0)return;if(/^\/[^/]+$/.test(location.pathname))location.replace(location.pathname+"/"+location.search+location.hash);})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Политика cookie — ГРИН ЭКО</title>
+  <meta name="description" content="Какие cookie и данные браузера использует сайт ООО «ГРИН ЭКО» и как отключить карту Яндекса.">
+  <link rel="stylesheet" href="css/style.css?v=20261012">
+  <link rel="icon" href="favicon.svg?v=20261012">
+</head>
+<body data-root="" data-page="legal">
+<a class="skip" href="#main">К содержанию</a>
+<div id="site-header"></div>
+<main id="main">
+<div class="page-hero"><div class="container">
+  <h1 style="font-family:Fraunces,serif">Политика cookie</h1>
+  <p class="muted">Редакция от 8 октября 2026 года</p>
+</div></div>
+<section><div class="container legal-doc" style="max-width:800px">
+<p>Сайт ООО «ГРИН ЭКО» использует файлы cookie и локальное хранилище браузера. Рекламных и аналитических счётчиков нет. Обработка персональных данных из форм описана в документе <a href="obrabotka-personalnyh-dannyh.html">обработка персональных данных</a>.</p>
+
+<h2>1. Необходимые</h2>
+<p>Ключ greeneco_cookie_ok в localStorage запоминает, выбраны ли «Только необходимые» или «Принять». Без этой записи баннер будет появляться снова. Эти данные остаются в браузере посетителя и на сервер компании не отправляются.</p>
+
+<h2>2. Функциональные, без сторонних cookie</h2>
+<ul>
+  <li>greeneco_prices_v1 и greeneco_price_date — кэш цен, чтобы прайс открывался быстрее;</li>
+  <li>greeneco_sheet_sync в sessionStorage — отметка, что прайс уже обновлялся в этой вкладке;</li>
+  <li>greeneco_leads — копия отправленной заявки в браузере на случай, если письмо нужно сверить. Это персональные данные, они описаны в политике обработки.</li>
+</ul>
+
+<h2>3. Сторонние сервисы</h2>
+<p><strong>Яндекс.Карты.</strong> Карта склада в Дербенте не загружается, пока посетитель не нажмёт «Принять» в баннере или «Показать карту». После этого Яндекс может сохранить свои cookie. Если выбран режим «Только необходимые», карта остаётся закрытой.</p>
+<p><strong>Шрифты Google.</strong> Оформление текста запрашивает файлы шрифта с серверов Google. В этот запрос не входят имя и телефон. Запрос может включать IP-адрес.</p>
+<p><strong>Прайс Google Таблиц.</strong> Сайт читает опубликованную таблицу с ценами. Имя и телефон туда не передаются.</p>
+
+<h2>4. Как изменить выбор</h2>
+<p>Кнопка ниже стирает сохранённый выбор. После обновления страницы баннер появится снова. Карту также можно не открывать. Cookie Яндекса и Google удаляются в настройках браузера.</p>
+<p style="margin-top:16px"><button class="btn btn-dark" type="button" id="cookie-reset">Сбросить выбор cookie</button></p>
+<p class="muted" id="cookie-reset-note" hidden>Выбор сброшен. Обновите страницу, если баннер не появился сам.</p>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data.js?v=20261012"></script>
+<script src="js/sheet-sync.js?v=20261012"></script>
+<script src="js/site.js?v=20261012"></script>
+<script src="js/catalog.js?v=20261012"></script>
+</body>
+</html>

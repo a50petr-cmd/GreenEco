@@ -21,7 +21,6 @@
       '<nav class="nav">' +
       '<a href="' + href("ceny.html") + '">Цены</a>' +
       '<a href="' + href("dostavka.html") + '">Доставка</a>' +
-      '<a href="' + href("produkciya/frukty/yabloki.html") + '">Яблоки</a>' +
       '<a href="' + href("o-kompanii.html") + '">О компании</a>' +
       '<a href="' + href("kontakty.html") + '">Контакты</a>' +
       "</nav>" +
@@ -41,11 +40,13 @@
       "<div><h4>Разделы</h4><ul>" +
       '<li><a href="' + href("ceny.html") + '">Цены</a></li>' +
       '<li><a href="' + href("dostavka.html") + '">Доставка</a></li>' +
-      '<li><a href="' + href("produkciya/frukty/yabloki.html") + '">Яблоки</a></li>' +
       '<li><a href="' + href("o-kompanii.html") + '">О компании</a></li>' +
+      '<li><a href="' + href("kontakty.html") + '">Контакты</a></li>' +
       "</ul></div>" +
       "<div><h4>Документы</h4><ul>" +
       '<li><a href="' + href("politika-konfidencialnosti.html") + '">Политика конфиденциальности</a></li>' +
+      '<li><a href="' + href("obrabotka-personalnyh-dannyh.html") + '">Обработка персональных данных</a></li>' +
+      '<li><a href="' + href("politika-cookies.html") + '">Политика cookie</a></li>' +
       '<li><a href="' + href("polzovatelskoe-soglashenie.html") + '">Пользовательское соглашение</a></li>' +
       '<li><a href="' + href("admin/ceny.html") + '">Обновление цен</a></li>' +
       "</ul></div>" +
@@ -118,6 +119,22 @@
       honey.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0";
       form.appendChild(honey);
     }
+    if (!form.querySelector('[name="consent"]')) {
+      const label = document.createElement("label");
+      label.className = "consent";
+      label.innerHTML =
+        '<input type="checkbox" name="consent" value="да" required>' +
+        "<span>Даю согласие на обработку персональных данных и их передачу сервису FormSubmit, чтобы заявка пришла на почту компании. " +
+        '<a href="' + href("obrabotka-personalnyh-dannyh.html") + '">Обработка персональных данных</a>, ' +
+        '<a href="' + href("politika-konfidencialnosti.html") + '">политика конфиденциальности</a>.</span>';
+      label.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+      });
+      const submit = form.querySelector('[type="submit"]');
+      form.insertBefore(label, submit || null);
+    }
     if (!form.querySelector(".js-lead-error")) {
       const err = document.createElement("p");
       err.className = "js-lead-error";
@@ -144,12 +161,18 @@
       const errEl = form.querySelector(".js-lead-error");
       const submitBtn = form.querySelector('[type="submit"]');
       const submitLabel = submitBtn ? submitBtn.textContent : "";
+      const consent = form.querySelector('[name="consent"]');
 
       function showError(msg) {
         if (errEl) {
           errEl.textContent = msg;
           errEl.hidden = false;
         }
+      }
+
+      if (!consent || !consent.checked) {
+        showError("Поставьте отметку о согласии на обработку персональных данных.");
+        return;
       }
 
       if (submitBtn) {
@@ -271,9 +294,88 @@
   document.querySelectorAll(".js-warehouse-note").forEach(function (el) {
     el.textContent = C.warehouseNote || C.warehouse;
   });
-  document.querySelectorAll(".js-warehouse-map").forEach(function (el) {
-    if (C.mapEmbed) el.setAttribute("src", C.mapEmbed);
-  });
+
+  function cookieChoice() {
+    try {
+      return localStorage.getItem("greeneco_cookie_ok") || "";
+    } catch (err) {
+      return "";
+    }
+  }
+
+  function applyMaps() {
+    const allow = cookieChoice() === "all";
+    document.querySelectorAll(".js-warehouse-map").forEach(function (el) {
+      const src = el.getAttribute("data-map-src") || C.mapEmbed || "";
+      if (src) el.setAttribute("data-map-src", src);
+      const prev = el.previousElementSibling;
+      const hold = prev && prev.classList && prev.classList.contains("map-hold") ? prev : null;
+      if (allow && src) {
+        if (el.getAttribute("src") !== src) el.setAttribute("src", src);
+        el.hidden = false;
+        if (hold) hold.remove();
+        return;
+      }
+      el.removeAttribute("src");
+      el.hidden = true;
+      if (!hold) {
+        const box = document.createElement("div");
+        box.className = "map-hold";
+        box.innerHTML =
+          "<p>Карта склада в Дербенте откроется после согласия на cookie Яндекса.</p>" +
+          '<button class="btn btn-dark btn-sm" type="button">Показать карту</button>';
+        box.querySelector("button").addEventListener("click", function () {
+          setCookieChoice("all");
+        });
+        el.parentNode.insertBefore(box, el);
+      }
+    });
+  }
+
+  function setCookieChoice(value) {
+    try {
+      localStorage.setItem("greeneco_cookie_ok", value);
+    } catch (err) {}
+    const bar = document.getElementById("cookie-bar");
+    if (bar) bar.remove();
+    applyMaps();
+  }
+
+  function mountCookieBar() {
+    if (cookieChoice() || document.getElementById("cookie-bar")) return;
+    const bar = document.createElement("div");
+    bar.id = "cookie-bar";
+    bar.className = "cookie-bar";
+    bar.innerHTML =
+      '<p>Мы сохраняем ваш выбор по cookie и показываем карту Яндекса только после согласия. ' +
+      '<a href="' + href("politika-cookies.html") + '">Политика cookie</a>.</p>' +
+      '<div class="cookie-actions">' +
+      '<button type="button" class="btn btn-ghost btn-sm" id="cookie-need">Только необходимые</button>' +
+      '<button type="button" class="btn btn-dark btn-sm" id="cookie-all">Принять</button>' +
+      "</div>";
+    document.body.appendChild(bar);
+    document.getElementById("cookie-need").addEventListener("click", function () {
+      setCookieChoice("necessary");
+    });
+    document.getElementById("cookie-all").addEventListener("click", function () {
+      setCookieChoice("all");
+    });
+  }
+
+  applyMaps();
+  mountCookieBar();
+  const cookieReset = document.getElementById("cookie-reset");
+  if (cookieReset) {
+    cookieReset.addEventListener("click", function () {
+      try {
+        localStorage.removeItem("greeneco_cookie_ok");
+      } catch (err) {}
+      const note = document.getElementById("cookie-reset-note");
+      if (note) note.hidden = false;
+      applyMaps();
+      mountCookieBar();
+    });
+  }
 
   if (window.GREENECO.whenCatalogReady) {
     window.GREENECO.whenCatalogReady(refreshPriceDates);

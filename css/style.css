@@ -215,6 +215,32 @@ table input { width: 100%; min-width: 72px; padding: 8px; border-radius: 8px; bo
 .modal-card { background: #fff; border-radius: 20px; padding: 24px; width: min(480px, 100%); max-height: 90vh; overflow: auto; }
 .admin-bar { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
 .lead-honey { position: absolute; left: -9999px; }
+.fleet { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+.fleet figure { margin: 0; }
+.fleet img { width: 100%; height: 280px; object-fit: cover; border-radius: 24px; display: block; background: #d7ddd4; }
+.fleet figcaption { margin-top: 8px; font-weight: 700; }
+.photo-stack { display: grid; gap: 12px; }
+.photo-stack img { width: 100%; height: 240px; object-fit: cover; border-radius: 24px; display: block; background: #d7ddd4; }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.86rem; line-height: 1.45; margin: 4px 0 12px; }
+.consent input { margin-top: 4px; flex: 0 0 auto; }
+.consent a { text-decoration: underline; }
+.cookie-bar {
+  position: fixed; z-index: 90; left: 16px; right: 16px; bottom: 16px;
+  max-width: 920px; margin: 0 auto;
+  display: flex; gap: 16px; align-items: center; justify-content: space-between;
+  background: #fff; border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(20, 24, 22, 0.12); padding: 16px 18px;
+}
+.cookie-bar p { margin: 0; font-size: 0.92rem; }
+.cookie-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.map-hold {
+  border-radius: 24px; background: #e7ebe4; min-height: 320px;
+  display: grid; place-items: center; align-content: center; text-align: center; gap: 12px; padding: 24px;
+}
+.map-hold p { margin: 0; max-width: 360px; }
+.legal-doc h2 { margin-top: 28px; font-size: 1.35rem; }
+.legal-doc p, .legal-doc li { margin-top: 10px; }
+.legal-doc ul { margin-left: 18px; }
 
 @media (max-width: 1100px) {
   .price-grid { grid-template-columns: repeat(3, 1fr); }
@@ -232,5 +258,7 @@ table input { width: 100%; min-width: 72px; padding: 8px; border-radius: 8px; bo
   }
   .price-grid, .logo-grid { grid-template-columns: 1fr 1fr; }
   .shot, .shot img { min-height: 280px; height: 280px; }
+  .fleet, .cookie-bar { grid-template-columns: 1fr; flex-direction: column; align-items: stretch; }
+  .cookie-actions { flex-wrap: wrap; }
   h1, .hero h1 { font-size: 2.3rem; }
 }
