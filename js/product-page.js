@@ -9,9 +9,15 @@
     var pack = document.getElementById("p-pack");
     var ton = document.getElementById("p-ton");
     var vol = document.getElementById("p-vol");
-    if (kg) kg.textContent = window.GREENECO.money(p.priceKg);
-    if (pack) pack.textContent = window.GREENECO.money(p.pricePack);
-    if (ton) ton.textContent = window.GREENECO.money(p.priceTon);
+    if (p.priceOnRequest) {
+      if (kg) kg.textContent = "по запросу";
+      if (pack) pack.textContent = "по запросу";
+      if (ton) ton.textContent = "по запросу";
+    } else {
+      if (kg) kg.textContent = window.GREENECO.money(p.priceKg);
+      if (pack) pack.textContent = window.GREENECO.money(p.pricePack);
+      if (ton) ton.textContent = window.GREENECO.money(p.priceTon);
+    }
     if (vol) vol.textContent = p.volume;
   }
 

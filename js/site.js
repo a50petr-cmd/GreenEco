@@ -16,19 +16,14 @@
     header.innerHTML =
       '<header class="header" id="header">' +
       '<div class="container header-inner">' +
-      '<a class="logo" href="' + href("index.html") + '"><img src="' + href("img/logo.svg") + "?v=" + (window.GREENECO.assetVersion || "") + '" alt="' + C.brand + '" width="56" height="56"><span class="logo-text">' + C.brand + "<small>овощи и фрукты</small></span></a>" +
+      '<a class="logo" href="' + href("index.html") + '"><img src="' + href("img/logo.svg") + "?v=" + (window.GREENECO.assetVersion || "") + '" alt="' + C.brand + '" width="56" height="56"><span class="logo-text">' + C.brand + "<small>поставки оптом</small></span></a>" +
       '<button class="burger" type="button" aria-label="Меню" id="burger">☰</button>' +
       '<nav class="nav">' +
       '<a href="' + href("index.html") + '">Главная</a>' +
-      '<a href="' + href("o-kompanii.html") + '">О компании</a>' +
-      '<div class="nav-drop"><a href="' + href("produkciya/") + '">Продукция</a><div class="nav-drop-menu">' +
-      '<a href="' + href("produkciya/") + '">Весь каталог</a>' +
-      '<a href="' + href("produkciya/ovoshchi/") + '">Овощи</a>' +
-      "</div></div>" +
       '<a href="' + href("ceny.html") + '">Цены</a>' +
-      '<a href="' + href("sotrudnichestvo.html") + '">Сотрудничество</a>' +
       '<a href="' + href("dostavka.html") + '">Доставка</a>' +
-      '<a href="' + href("novosti/") + '">Новости</a>' +
+      '<a href="' + href("produkciya/frukty/yabloki.html") + '">Яблоки</a>' +
+      '<a href="' + href("o-kompanii.html") + '">О компании</a>' +
       '<a href="' + href("kontakty.html") + '">Контакты</a>' +
       "</nav>" +
       '<div class="header-cta">' +
@@ -42,13 +37,13 @@
     footer.innerHTML =
       '<footer class="footer"><div class="container">' +
       '<div class="footer-grid">' +
-      "<div><h4>" + C.name + "</h4><p>Производитель овощей, фруктов, ягод и зелени. Поставки оптом по ЮФО, ЦФО и соседним регионам.</p>" +
+      "<div><h4>" + C.name + "</h4><p>Капуста, картофель, морковь и лук с сертификатами. Сезонные яблоки — по запросу. " + C.deliveryRegions + ".</p>" +
       "<p style=\"margin-top:10px\">ИНН " + C.inn + "<br>КПП " + C.kpp + "<br>ОГРН " + C.ogrn + "</p></div>" +
       "<div><h4>Разделы</h4><ul>" +
-      '<li><a href="' + href("produkciya/") + '">Каталог</a></li>' +
-      '<li><a href="' + href("ceny.html") + '">Прайс-лист</a></li>' +
-      '<li><a href="' + href("sotrudnichestvo.html") + '">Сотрудничество</a></li>' +
-      '<li><a href="' + href("dostavka.html") + '">Доставка и оплата</a></li>' +
+      '<li><a href="' + href("ceny.html") + '">Цены</a></li>' +
+      '<li><a href="' + href("dostavka.html") + '">Доставка</a></li>' +
+      '<li><a href="' + href("produkciya/frukty/yabloki.html") + '">Яблоки</a></li>' +
+      '<li><a href="' + href("o-kompanii.html") + '">О компании</a></li>' +
       "</ul></div>" +
       "<div><h4>Документы</h4><ul>" +
       '<li><a href="' + href("politika-konfidencialnosti.html") + '">Политика конфиденциальности</a></li>' +
@@ -269,10 +264,16 @@
       "</a></p>";
   }
   document.querySelectorAll(".js-company-address").forEach(function (el) {
-    el.innerHTML = C.name + "<br>" + C.legalAddress + "<br>" + C.hours;
+    el.textContent = C.legalAddress;
   });
   document.querySelectorAll(".js-company-id").forEach(function (el) {
     el.textContent = C.name + ", ИНН " + C.inn + ", КПП " + C.kpp + ", ОГРН " + C.ogrn;
+  });
+  document.querySelectorAll(".js-warehouse-note").forEach(function (el) {
+    el.textContent = C.warehouseNote || C.warehouse;
+  });
+  document.querySelectorAll(".js-warehouse-map").forEach(function (el) {
+    if (C.mapEmbed) el.setAttribute("src", C.mapEmbed);
   });
 
   if (window.GREENECO.whenCatalogReady) {

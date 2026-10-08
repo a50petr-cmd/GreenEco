@@ -4,118 +4,63 @@
   <script>(function(){if((location.hostname||"").indexOf("github.io")<0)return;if(/^\/[^/]+$/.test(location.pathname))location.replace(location.pathname+"/"+location.search+location.hash);})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ГРИН ЭКО — овощи и фрукты оптом с собственных полей</title>
+  <title>ГРИН ЭКО — поставки в магазины и опт от 15 тонн</title>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <meta name="description" content="ООО «ГРИН ЭКО»: овощи, фрукты, ягоды и зелень оптом. Поставки по России. Актуальный прайс.">
+  <meta name="description" content="Капуста, картофель, морковь и лук с сертификатами. Развоз в магазины машинами от 3 тонн и оптовые партии от 15 тонн. Юг России, Москва и область, Санкт-Петербург и область. Сезонные яблоки — по запросу.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261009">
-  <link rel="icon" href="favicon.svg?v=20261009">
+  <link rel="stylesheet" href="css/style.css?v=20261010">
+  <link rel="icon" href="favicon.svg?v=20261010">
 </head>
 <body data-root="" data-page="home">
 <a class="skip" href="#main">К содержанию</a>
 <div id="site-header"></div>
 <main id="main">
-<section class="hero" style="background-image:url('img/photos/hero.jpg?v=20261009')">
+<section class="hero" style="background-image:url('img/photos/harvest.jpg?v=20261010')">
   <div class="container hero-inner">
-    <span class="eyebrow">Производитель овощей и фруктов</span>
-    <h1>ГРИН ЭКО</h1>
-    <p class="lead">Овощи и фрукты с собственных полей — оптом, без посредников. С поля на склад клиента за 24–48 часов.</p>
+    <span class="eyebrow">Надёжные поставки</span>
+    <h1>Прямые поставки в магазины и опт от 15 тонн</h1>
+    <p class="lead">Капуста, картофель, морковь и лук с сертификатами. В магазины — машинами от 3 тонн. Оптовые партии — от 15 тонн. Сезонные яблоки — по запросу.</p>
     <div class="hero-actions">
-      <button class="btn btn-primary js-lead" type="button">Оставить заявку</button>
-      <a class="btn btn-ghost" href="ceny.html">Прайс-лист</a>
+      <a class="btn btn-primary" href="#prices">Цены на сегодня</a>
+      <button class="btn btn-ghost js-lead" type="button">Оставить заявку</button>
     </div>
   </div>
 </section>
-<section>
-  <div class="container grid-2">
-    <div>
-      <p class="section-kicker">О компании</p>
-      <h2>Растим сами, фасуем сами, возим своей логистикой</h2>
-      <p class="muted">ООО «ГРИН ЭКО» — агрохозяйство полного цикла: открытый грунт, зимние теплицы, холодильные склады и собственный автопарк. Поставляем сети, оптовикам и HoReCa без перекупщиков.</p>
-      <div class="stats">
-        <div class="stat"><b>1 240</b><span>гектаров полей и садов</span></div>
-        <div class="stat"><b>28 000</b><span>тонн продукции в год</span></div>
-        <div class="stat"><b>14</b><span>лет на рынке</span></div>
-      </div>
-      <p style="margin-top:18px"><a class="btn btn-dark" href="o-kompanii.html">Подробнее о производстве</a></p>
-    </div>
-    <img src="img/photos/greenhouse.jpg?v=20261009" alt="Теплицы ГринЭко" style="border-radius:24px;height:100%;object-fit:cover;min-height:320px">
-  </div>
-</section>
-<section style="padding-top:0">
-  <div class="container">
-    <p class="section-kicker">Каталог</p>
-    <h2>Категории продукции</h2>
-    <div class="cat-grid" style="margin-top:20px">
-      <a class="cat-card" href="produkciya/ovoshchi/index.html"><img src="img/photos/ovoshchi.jpg?v=20261009" alt="Овощи"><span>Овощи</span></a>
-      <a class="cat-card" href="produkciya/frukty/index.html"><img src="img/photos/frukty.jpg?v=20261009" alt="Фрукты"><span>Фрукты</span></a>
-      <a class="cat-card" href="produkciya/yagody/index.html"><img src="img/photos/yagody.jpg?v=20261009" alt="Ягоды"><span>Ягоды</span></a>
-      <a class="cat-card" href="produkciya/zelen/index.html"><img src="img/photos/zelen.jpg?v=20261009" alt="Зелень"><span>Зелень</span></a>
-    </div>
-  </div>
-</section>
-<section>
+<section id="prices">
   <div class="container">
     <p class="section-kicker">Прайс</p>
-    <h2>Популярные позиции</h2>
-    <p class="muted">Оптовая цена за килограмм. Розница и мелкий опт — в полном прайсе.</p>
-    <div class="card-grid" id="popular" style="margin-top:20px"></div>
+    <h2>Цены на <span data-price-date></span></h2>
+    <p class="muted">Четыре позиции обновляются из таблицы. Яблоки сезонные, отдельного прайса нет — цена по запросу.</p>
+    <div class="table-wrap" style="margin-top:20px"><table id="today-prices"></table></div>
   </div>
 </section>
 <section style="padding-top:0">
   <div class="container">
-    <p class="section-kicker">Почему мы</p>
-    <h2>Преимущества для опта</h2>
+    <p class="section-kicker">Ассортимент</p>
+    <h2>Что возим</h2>
     <div class="adv-grid" style="margin-top:20px">
-      <article class="adv-card"><span class="tag">Поля</span><h3>Собственные поля</h3><p class="muted">Контроль сорта, полива и сроков сбора. Нет зависимости от чужого сырья.</p></article>
-      <article class="adv-card"><span class="tag">Цена</span><h3>Без посредников</h3><p class="muted">Прямой контракт с производителем: прозрачная цена и стабильный объём.</p></article>
-      <article class="adv-card"><span class="tag">Логистика</span><h3>Доставка</h3><p class="muted">Свой автопарк рефрижераторов и партнёрские ТК. ЮФО, ЦФО, Поволжье.</p></article>
-      <article class="adv-card"><span class="tag">Качество</span><h3>Сертификаты</h3><p class="muted">Декларации EAC, протоколы ГОСТ, партия сопровождается документами.</p></article>
-    </div>
-  </div>
-</section>
-<section>
-  <div class="container">
-    <div class="price-banner">
-      <div>
-        <p class="eyebrow">Актуальные цены</p>
-        <h2 style="color:#fff">Прайс обновлён <span data-price-date></span></h2>
-        <p>Опт / мелкий опт / розница. Скачивание в Excel и PDF — на странице цен.</p>
-      </div>
-      <a class="btn btn-primary" href="ceny.html">Открыть полный прайс</a>
+      <article class="adv-card"><h3>Капуста, картофель, морковь, лук</h3><p class="muted">Постоянные позиции с сертификатами. Актуальная цена — в таблице выше.</p></article>
+      <article class="adv-card"><h3>Яблоки в сезон</h3><p class="muted">Сады в аренде. Сорта: Гала, Ред Чиф, Гренни Смит, Семеринка. Цена по запросу.</p><p style="margin-top:12px"><a href="produkciya/frukty/yabloki.html">Подробнее о яблоках</a></p></article>
     </div>
   </div>
 </section>
 <section>
   <div class="container grid-2">
     <div>
-      <p class="section-kicker">География</p>
-      <h2>Куда возим</h2>
-      <p class="muted">Юридический адрес — Москва. Регулярные поставки по регионам. Самовывоз согласовывается с отделом продаж.</p>
-      <div class="regions">
-        <span>Краснодарский край</span><span>Ростовская обл.</span><span>Ставропольский край</span>
-        <span>Воронеж</span><span>Москва и МО</span><span>Тула</span><span>Волгоград</span><span>Астрахань</span>
+      <p class="section-kicker">Логистика</p>
+      <h2>Как и куда возим</h2>
+      <div class="adv-grid" style="margin-top:16px">
+        <article class="adv-card"><h3>В магазины</h3><p class="muted">Прямая поставка машинами от 3 тонн.</p></article>
+        <article class="adv-card"><h3>Опт</h3><p class="muted">Отгрузка партиями от 15 тонн.</p></article>
       </div>
+      <div class="regions">
+        <span>Юг России</span><span>Москва и область</span><span>Санкт-Петербург и область</span>
+      </div>
+      <p class="muted js-warehouse-note" style="margin-top:16px"></p>
     </div>
-    <iframe class="map-embed" title="Карта офиса" src="https://yandex.ru/map-widget/v1/?ll=37.497000%2C55.821000&z=16&text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5%2024"></iframe>
-  </div>
-</section>
-<section style="padding-top:0">
-  <div class="container">
-    <p class="section-kicker">Клиенты</p>
-    <h2>Партнёры</h2>
-    <div class="logo-grid" style="margin-top:16px">
-      <div class="partner"><img src="img/partners/magnit.svg?v=20261009" alt="Магнит" width="200" height="40"></div>
-      <div class="partner"><img src="img/partners/pyaterochka.svg?v=20261009" alt="Пятёрочка" width="56" height="56"></div>
-      <div class="partner"><img src="img/partners/chizhik.svg?v=20261009" alt="Чижик" width="70" height="52"></div>
-      <div class="partner"><img src="img/partners/perekrestok.png?v=20261009" alt="Перекрёсток" width="200" height="48"></div>
-      <div class="partner"><img src="img/partners/lenta.png?v=20261009" alt="Лента" width="200" height="48"></div>
-      <div class="partner"><img src="img/partners/metro.svg?v=20261009" alt="METRO" width="120" height="56"></div>
-      <div class="partner"><img src="img/partners/verny.png?v=20261009" alt="Верный" width="180" height="56"></div>
-      <div class="partner"><img src="img/partners/dixy.svg?v=20261009" alt="Дикси" width="180" height="48"></div>
-    </div>
+    <iframe class="map-embed js-warehouse-map" title="Склад в Дербенте" src="https://yandex.ru/map-widget/v1/?ll=48.2908%2C42.0578&z=12&pt=48.2908%2C42.0578%2Cpm2rdm&text=%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82"></iframe>
   </div>
 </section>
 <section>
@@ -126,8 +71,9 @@
       <form class="form js-lead-form" style="margin-top:16px">
         <label>Имя</label><input name="name" required>
         <label>Телефон</label><input name="phone" type="tel" required>
-        <label>Товар</label><input name="product" placeholder="Категория или позиция">
-        <label>Объём</label><input name="volume" placeholder="Тонны / недели">
+        <label>Город</label><input name="city" placeholder="Краснодар, Ростов, Москва…">
+        <label>Товар</label><input name="product" placeholder="Картофель, яблоки…">
+        <label>Объём</label><input name="volume" placeholder="От 3 тонн в магазин или от 15 тонн оптом">
         <button class="btn btn-primary" type="submit">Отправить заявку</button>
       </form>
     </div>
@@ -136,29 +82,23 @@
       <p><a href="tel:+79281221355">+7 (928) 122-13-55</a></p>
       <p><a href="mailto:kompaniagrineko@yandex.ru">kompaniagrineko@yandex.ru</a></p>
       <p><a href="https://wa.me/79281221355" target="_blank" rel="noopener">WhatsApp</a></p>
-      <p class="muted js-company-address" style="margin-top:12px"></p>
+      <p class="muted js-warehouse-note" style="margin-top:12px"></p>
+      <p class="muted" style="margin-top:8px">Пн–Сб: 8:00–18:00</p>
     </div>
   </div>
 </section>
 </main>
 <div id="site-footer"></div>
-<script src="js/data.js?v=20261009"></script>
-<script src="js/sheet-sync.js?v=20261009"></script>
-<script src="js/site.js?v=20261009"></script>
-<script src="js/catalog.js?v=20261009"></script>
+<script src="js/data.js?v=20261010"></script>
+<script src="js/sheet-sync.js?v=20261010"></script>
+<script src="js/site.js?v=20261010"></script>
+<script src="js/catalog.js?v=20261010"></script>
 <script>
-window.GREENECO.whenCatalogReady(function () {
-  window.GREENECO.renderCards(
-    document.getElementById("popular"),
-    window.GREENECO.catalog.filter(function (p) { return p.popular; })
-  );
-});
-document.addEventListener("greeneco-catalog-updated", function () {
-  window.GREENECO.renderCards(
-    document.getElementById("popular"),
-    window.GREENECO.catalog.filter(function (p) { return p.popular; })
-  );
-});
+function paintPrices() {
+  window.GREENECO.renderTodayPrices(document.getElementById("today-prices"));
+}
+window.GREENECO.whenCatalogReady(paintPrices);
+document.addEventListener("greeneco-catalog-updated", paintPrices);
 </script>
 </body>
 </html>
