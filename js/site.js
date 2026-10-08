@@ -16,10 +16,9 @@
     header.innerHTML =
       '<header class="header" id="header">' +
       '<div class="container header-inner">' +
-      '<a class="logo" href="' + href("index.html") + '"><img src="' + href("img/logo.svg") + "?v=" + (window.GREENECO.assetVersion || "") + '" alt="' + C.brand + '" width="56" height="56"><span class="logo-text">' + C.brand + "<small>поставки оптом</small></span></a>" +
+      '<a class="logo" href="' + href("index.html") + '"><img src="' + href("img/logo.svg") + "?v=" + (window.GREENECO.assetVersion || "") + '" alt="' + C.brand + '" width="36" height="36"><span class="logo-text">' + C.brand + "</span></a>" +
       '<button class="burger" type="button" aria-label="Меню" id="burger">☰</button>' +
       '<nav class="nav">' +
-      '<a href="' + href("index.html") + '">Главная</a>' +
       '<a href="' + href("ceny.html") + '">Цены</a>' +
       '<a href="' + href("dostavka.html") + '">Доставка</a>' +
       '<a href="' + href("produkciya/frukty/yabloki.html") + '">Яблоки</a>' +
@@ -28,7 +27,7 @@
       "</nav>" +
       '<div class="header-cta">' +
       '<a class="header-phone" href="' + C.phoneSalesHref + '">' + C.phoneSales + "</a>" +
-      '<button class="btn btn-primary btn-sm js-lead" type="button">Оставить заявку</button>' +
+      '<button class="btn btn-dark btn-sm js-lead" type="button">Заявка</button>' +
       "</div></div></header>";
   }
 

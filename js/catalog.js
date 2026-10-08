@@ -41,30 +41,31 @@
 
   window.GREENECO.money = money;
 
-  window.GREENECO.renderTodayPrices = function (table) {
-    if (!table) return;
+  function shortName(name) {
+    return String(name || "").replace(" репчатый", "").replace(" белокочанная", "");
+  }
+
+  window.GREENECO.renderTodayPrices = function (el) {
+    if (!el) return;
     var list = window.GREENECO.catalog || [];
-    table.innerHTML =
-      "<thead><tr><th>Товар</th><th>Цена</th><th>Фасовка</th><th>Объём</th></tr></thead><tbody>" +
-      list
-        .map(function (p) {
+    if (el.tagName === "TABLE") {
+      el.innerHTML =
+        "<thead><tr><th>Товар</th><th>Цена</th><th>Фасовка</th><th>Объём</th></tr></thead><tbody>" +
+        list.map(function (p) {
           var price = p.priceOnRequest ? "по запросу" : money(p.priceKg) + " / кг";
-          return (
-            "<tr><td><a href=\"" +
-            root +
-            p.url +
-            "\">" +
-            p.name +
-            "</a></td><td>" +
-            price +
-            "</td><td>" +
-            (p.pack || "—") +
-            "</td><td>" +
-            (p.volume || "—") +
-            "</td></tr>"
-          );
-        })
-        .join("") +
-      "</tbody>";
+          return "<tr><td><a href=\"" + root + p.url + "\">" + p.name + "</a></td><td>" + price + "</td><td>" + (p.pack || "—") + "</td><td>" + (p.volume || "—") + "</td></tr>";
+        }).join("") + "</tbody>";
+      return;
+    }
+    el.innerHTML = list.map(function (p) {
+      var price = p.priceOnRequest
+        ? '<div class="num">по запросу</div><p class="sorts">' + (p.variety || "") + "</p>"
+        : '<div class="num">' + new Intl.NumberFormat("ru-RU").format(p.priceKg) + " <span>₽/кг</span></div>";
+      return (
+        '<a class="price-card' + (p.priceOnRequest ? " ask" : "") + '" href="' + root + p.url + '">' +
+        '<img src="' + asset(p.image.indexOf("http") === 0 ? p.image : root + p.image) + '" alt="' + shortName(p.name) + '">' +
+        "<h3>" + shortName(p.name) + "</h3>" + price + "</a>"
+      );
+    }).join("");
   };
 })();
