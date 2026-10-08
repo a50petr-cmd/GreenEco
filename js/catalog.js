@@ -64,7 +64,8 @@
       return (
         '<a class="price-card' + (p.priceOnRequest ? " ask" : "") + '" href="' + root + p.url + '">' +
         '<img src="' + asset(p.image.indexOf("http") === 0 ? p.image : root + p.image) + '" alt="' + shortName(p.name) + '">' +
-        "<h3>" + shortName(p.name) + "</h3>" + price + "</a>"
+        "<h3>" + shortName(p.name) + "</h3>" + price +
+        '<p class="lot">от 3 т в магазин<br>от 15 т опт</p></a>'
       );
     }).join("");
   };
