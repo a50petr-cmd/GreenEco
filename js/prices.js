@@ -6,7 +6,7 @@
     if (!table) return;
     const products = window.GREENECO.catalog || window.GREENECO.applyPrices(window.GREENECO.products);
     table.innerHTML =
-      "<thead><tr><th>Товар</th><th>Цена, ₽/кг</th><th>Фасовка</th><th>Объём</th></tr></thead><tbody>" +
+      "<thead><tr><th>Товар</th><th>Цена, ₽/кг</th><th>Фасовка</th><th>Отгрузка в день</th></tr></thead><tbody>" +
       products
         .map(function (p) {
           var price = p.priceOnRequest ? "по запросу" : money(p.priceKg);
@@ -30,7 +30,7 @@
 
   function csv() {
     const products = window.GREENECO.catalog || window.GREENECO.applyPrices(window.GREENECO.products);
-    const rows = [["Товар", "Цена кг", "Фасовка", "Объём", "Дата"]];
+    const rows = [["Товар", "Цена кг", "Фасовка", "Отгрузка в день", "Дата"]];
     const date = window.GREENECO.priceDate();
     products.forEach(function (p) {
       rows.push([

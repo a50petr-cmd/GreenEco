@@ -48,7 +48,6 @@
       '<li><a href="' + href("obrabotka-personalnyh-dannyh.html") + '">Обработка персональных данных</a></li>' +
       '<li><a href="' + href("politika-cookies.html") + '">Политика cookie</a></li>' +
       '<li><a href="' + href("polzovatelskoe-soglashenie.html") + '">Пользовательское соглашение</a></li>' +
-      '<li><a href="' + href("admin/ceny.html") + '">Обновление цен</a></li>' +
       "</ul></div>" +
       "<div><h4>Контакты</h4><ul>" +
       '<li><a href="' + C.phoneSalesHref + '">' + C.phoneSales + "</a> — продажи</li>" +

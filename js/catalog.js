@@ -50,7 +50,7 @@
     var list = window.GREENECO.catalog || [];
     if (el.tagName === "TABLE") {
       el.innerHTML =
-        "<thead><tr><th>Товар</th><th>Цена</th><th>Фасовка</th><th>Объём</th></tr></thead><tbody>" +
+        "<thead><tr><th>Товар</th><th>Цена</th><th>Фасовка</th><th>Отгрузка в день</th></tr></thead><tbody>" +
         list.map(function (p) {
           var price = p.priceOnRequest ? "по запросу" : money(p.priceKg) + " / кг";
           return "<tr><td><a href=\"" + root + p.url + "\">" + p.name + "</a></td><td>" + price + "</td><td>" + (p.pack || "—") + "</td><td>" + (p.volume || "—") + "</td></tr>";

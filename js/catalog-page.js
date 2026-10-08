@@ -20,8 +20,20 @@
       if (pack && (p.packKeys || []).indexOf(pack) === -1) return false;
       return true;
     });
-    if (sort === "price-asc") rows.sort(function (a, b) { return a.priceKg - b.priceKg; });
-    if (sort === "price-desc") rows.sort(function (a, b) { return b.priceKg - a.priceKg; });
+    function priceOf(p) {
+      if (!p || p.priceOnRequest || p.priceKg == null) return null;
+      return p.priceKg;
+    }
+    if (sort === "price-asc" || sort === "price-desc") {
+      rows.sort(function (a, b) {
+        var pa = priceOf(a);
+        var pb = priceOf(b);
+        if (pa == null && pb == null) return 0;
+        if (pa == null) return 1;
+        if (pb == null) return -1;
+        return sort === "price-asc" ? pa - pb : pb - pa;
+      });
+    }
     if (sort === "name") rows.sort(function (a, b) { return a.name.localeCompare(b.name, "ru"); });
     window.GREENECO.renderCards(box, rows);
   }
