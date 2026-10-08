@@ -170,7 +170,7 @@ h2 { font-size: 1.7rem; letter-spacing: -0.04em; font-weight: 800; margin-bottom
 .panel .regions span { background: var(--bg); }
 
 .form { display: grid; gap: 10px; }
-.form input, .form select, .form textarea {
+.form input:not([type="checkbox"]), .form select, .form textarea {
   width: 100%; padding: 12px 14px; border-radius: 12px;
   border: 1px solid var(--line); background: var(--bg); font-size: 1rem;
 }
@@ -221,8 +221,15 @@ table input { width: 100%; min-width: 72px; padding: 8px; border-radius: 8px; bo
 .fleet figcaption { margin-top: 8px; font-weight: 700; }
 .photo-stack { display: grid; gap: 12px; }
 .photo-stack img { width: 100%; height: 240px; object-fit: cover; border-radius: 24px; display: block; background: #d7ddd4; }
-.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.86rem; line-height: 1.45; margin: 4px 0 12px; }
-.consent input { margin-top: 4px; flex: 0 0 auto; }
+.consent {
+  display: flex; gap: 10px; align-items: flex-start; min-width: 0;
+  font-size: 0.86rem; font-weight: 500; line-height: 1.45; margin: 4px 0 12px;
+}
+.form .consent input[type="checkbox"] {
+  width: 18px; height: 18px; min-width: 18px; margin: 2px 0 0; padding: 0;
+  flex: 0 0 18px; accent-color: var(--green);
+}
+.consent span { min-width: 0; }
 .consent a { text-decoration: underline; }
 .cookie-bar {
   position: fixed; z-index: 90; left: 16px; right: 16px; bottom: 16px;
