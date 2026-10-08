@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /novosti/
+Disallow: /preview.html
+Disallow: /spasibo.html
+Disallow: /produkciya/yagody/
+Disallow: /produkciya/zelen/
+Disallow: /produkciya/ovoshchi/tomaty.html
+Disallow: /produkciya/ovoshchi/ogurcy.html
+Disallow: /produkciya/ovoshchi/perec.html
+Disallow: /produkciya/ovoshchi/svekla.html
+Disallow: /produkciya/frukty/grushi.html
+Disallow: /produkciya/frukty/slivy.html
+
+Host: grineko.ru
+Sitemap: https://grineko.ru/sitemap.xml

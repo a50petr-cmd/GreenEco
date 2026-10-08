@@ -338,6 +338,28 @@
     const bar = document.getElementById("cookie-bar");
     if (bar) bar.remove();
     applyMaps();
+    applyMetrika();
+  }
+
+  function applyMetrika() {
+    var id = String(window.GREENECO.metrikaId || "").replace(/\D/g, "");
+    if (!id || cookieChoice() !== "all" || document.getElementById("ym-loader")) return;
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+      m[i].l = 1 * new Date();
+      k = e.createElement(t);
+      a = e.getElementsByTagName(t)[0];
+      k.async = 1;
+      k.src = r;
+      k.id = "ym-loader";
+      a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    window.ym(Number(id), "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: false,
+    });
   }
 
   function mountCookieBar() {
@@ -346,7 +368,7 @@
     bar.id = "cookie-bar";
     bar.className = "cookie-bar";
     bar.innerHTML =
-      '<p>Мы сохраняем ваш выбор по cookie и показываем карту Яндекса только после согласия. ' +
+      '<p>Мы сохраняем ваш выбор по cookie. Карта склада и Яндекс.Метрика включаются только после согласия. ' +
       '<a href="' + href("politika-cookies.html") + '">Политика cookie</a>.</p>' +
       '<div class="cookie-actions">' +
       '<button type="button" class="btn btn-ghost btn-sm" id="cookie-need">Только необходимые</button>' +
@@ -362,6 +384,7 @@
   }
 
   applyMaps();
+  applyMetrika();
   mountCookieBar();
   const cookieReset = document.getElementById("cookie-reset");
   if (cookieReset) {
@@ -372,6 +395,7 @@
       const note = document.getElementById("cookie-reset-note");
       if (note) note.hidden = false;
       applyMaps();
+      applyMetrika();
       mountCookieBar();
     });
   }
