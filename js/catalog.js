@@ -78,7 +78,9 @@
       return (
         open +
         '<img src="' + asset(p.image.indexOf("http") === 0 ? p.image : root + p.image) + '" alt="' + shortName(p.name) + '">' +
-        "<h3>" + shortName(p.name) + "</h3>" + price +
+        (homeCards
+          ? "<h3><a href=\"" + root + p.url + "\">" + shortName(p.name) + "</a></h3>"
+          : "<h3>" + shortName(p.name) + "</h3>") + price +
         '<p class="lot">' + lot + "</p>" + actions + close
       );
     }).join("");

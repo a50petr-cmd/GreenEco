@@ -226,11 +226,33 @@ table input { width: 100%; min-width: 72px; padding: 8px; border-radius: 8px; bo
 .fleet figcaption { margin-top: 8px; font-weight: 700; }
 .photo-stack { display: grid; gap: 12px; }
 .photo-stack img { width: 100%; height: 240px; object-fit: cover; border-radius: 24px; display: block; background: #d7ddd4; }
-.about-lead { width: 100%; height: 100%; min-height: 360px; object-fit: cover; border-radius: 24px; display: block; background: #d7ddd4; }
-.about-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
-.about-gallery figure { margin: 0; }
-.about-gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 18px; display: block; background: #d7ddd4; }
-.about-gallery figcaption { margin-top: 6px; font-weight: 700; font-size: 0.88rem; }
+.about-intro { max-width: 68ch; }
+.about-mosaic {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.95fr) minmax(0, 1.15fr) minmax(0, 1.15fr);
+  grid-template-rows: 156px 292px 176px;
+  grid-template-areas:
+    "truck luk morkov"
+    "truck warehouse warehouse"
+    "close cut cut";
+  gap: 12px;
+  margin-top: 28px;
+}
+.about-truck { grid-area: truck; }
+.about-luk { grid-area: luk; }
+.about-morkov { grid-area: morkov; }
+.about-warehouse { grid-area: warehouse; }
+.about-close { grid-area: close; }
+.about-cut { grid-area: cut; }
+.about-mosaic figure { margin: 0; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.about-mosaic img {
+  width: 100%; flex: 1 1 auto; height: 0; min-height: 0;
+  object-fit: cover; border-radius: 18px; display: block; background: #d7ddd4;
+}
+.about-truck img { object-position: center 58%; }
+.about-warehouse img { object-position: center 42%; }
+.about-cut img { object-position: center 48%; }
+.about-mosaic figcaption { margin-top: 6px; font-weight: 700; font-size: 0.88rem; flex: none; }
 .consent {
   display: flex; gap: 10px; align-items: flex-start; min-width: 0;
   font-size: 0.86rem; font-weight: 500; line-height: 1.45; margin: 4px 0 12px;
@@ -279,7 +301,18 @@ table input { width: 100%; min-width: 72px; padding: 8px; border-radius: 8px; bo
   .price-grid, .logo-grid { grid-template-columns: 1fr 1fr; }
   .shot, .shot img { min-height: 280px; height: 280px; }
   .fleet, .cookie-bar { grid-template-columns: 1fr; flex-direction: column; align-items: stretch; }
-  .about-gallery { grid-template-columns: 1fr 1fr; }
+  .about-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+    grid-template-areas:
+      "truck truck"
+      "luk morkov"
+      "warehouse warehouse"
+      "close cut";
+  }
+  .about-mosaic img { height: auto; flex: none; aspect-ratio: 3 / 2; }
+  .about-truck img { aspect-ratio: 3 / 4; object-position: center 58%; }
+  .about-warehouse img { aspect-ratio: 16 / 9; }
   .cookie-actions { flex-wrap: wrap; }
   h1, .hero h1 { font-size: 2.3rem; }
 }

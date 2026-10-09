@@ -1,6 +1,6 @@
 window.GREENECO = {
-  assetVersion: "20261022",
-  siteUrl: "https://grineko.ru",
+  assetVersion: "20261023",
+  siteUrl: "https://www.grineko.ru",
   metrikaId: "113572869",
   yandexVerification: "",
   catalogSheetUrl:
@@ -21,7 +21,7 @@ window.GREENECO = {
     mapEmbed:
       "https://yandex.ru/map-widget/v1/?ll=48.2908%2C42.0578&z=12&pt=48.2908%2C42.0578%2Cpm2rdm&text=%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82",
     bank: "филиал «Ростовский» АО «Альфа-Банк»",
-    requisitesEmail: "grineko.ooo@mail.ru",
+    requisitesEmail: "kompaniagrineko@yandex.ru",
     rs: "40702810926210002713",
     ks: "30101810500000000207",
     bik: "046015207",

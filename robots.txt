@@ -13,5 +13,5 @@ Disallow: /produkciya/ovoshchi/svekla.html
 Disallow: /produkciya/frukty/grushi.html
 Disallow: /produkciya/frukty/slivy.html
 
-Host: grineko.ru
-Sitemap: https://grineko.ru/sitemap.xml
+Host: www.grineko.ru
+Sitemap: https://www.grineko.ru/sitemap.xml
