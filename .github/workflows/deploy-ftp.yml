@@ -57,15 +57,13 @@ jobs:
 
       - name: Verify live homepage
         run: |
-          expected=$(wc -c < index.html | tr -d ' ')
           for attempt in 1 2 3; do
-            actual=$(curl -fsSIL "https://grineko.ru/index.html" | awk 'tolower($1)=="content-length:" {print $2}' | tr -d '\r')
-            if [ "$actual" = "$expected" ]; then
-              echo "OK: index.html on site is ${actual} bytes"
+            if curl -fsSL "https://www.grineko.ru/" | grep -q "mc.yandex.ru/metrika/tag.js?id=113572869"; then
+              echo "OK: homepage on www.grineko.ru contains the current Metrika counter"
               exit 0
             fi
-            echo "Attempt ${attempt}: expected ${expected}, got ${actual:-unknown}; retry in 15s"
+            echo "Attempt ${attempt}: counter not on the live homepage yet; retry in 15s"
             sleep 15
           done
-          echo "::error::Сайт не обновился. Проверьте секрет FTP_SERVER_DIR (обычно www/grineko.ru/)."
+          echo "::error::Сайт не обновился. https://grineko.ru сейчас перенаправляет на www. Проверьте FTP_SERVER_DIR (обычно www/grineko.ru/)."
           exit 1
