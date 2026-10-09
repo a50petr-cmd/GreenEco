@@ -116,6 +116,7 @@ h1, .hero h1 {
 .fact span { color: var(--muted); font-size: 0.82rem; }
 .shot { position: relative; border-radius: 28px; overflow: hidden; min-height: 460px; background: #d7ddd4; }
 .shot img { width: 100%; height: 100%; object-fit: cover; min-height: 460px; }
+.shot-reefer { object-position: center 42%; }
 .float {
   position: absolute; left: 18px; right: 18px; bottom: 18px;
   background: rgba(255,255,255,0.94); border-radius: 18px; padding: 16px 18px;
