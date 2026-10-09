@@ -57,16 +57,41 @@
         }).join("") + "</tbody>";
       return;
     }
+    var homeCards = el.id === "today-prices";
     el.innerHTML = list.map(function (p) {
       var price = p.priceOnRequest
         ? '<div class="num">по запросу</div><p class="sorts">' + (p.variety || "") + "</p>"
         : '<div class="num">' + new Intl.NumberFormat("ru-RU").format(p.priceKg) + " <span>₽/кг</span></div>";
+      var lot = p.priceOnRequest
+        ? "объём по запросу"
+        : (homeCards ? (p.pack || "сетка 25 кг") + "<br>" + (p.volume || "от 20 т/день") : "от 3 т в магазин<br>от 15 т опт");
+      var actions = homeCards
+        ? '<div class="price-actions">' +
+          '<button class="btn btn-primary btn-sm js-lead" type="button" data-product="' + p.name + '">Оставить заявку</button>' +
+          '<a class="btn btn-ghost btn-sm" href="' + root + 'ceny.html">Весь прайс</a>' +
+          "</div>"
+        : "";
+      var open = homeCards
+        ? '<article class="price-card' + (p.priceOnRequest ? " ask" : "") + '">'
+        : '<a class="price-card' + (p.priceOnRequest ? " ask" : "") + '" href="' + root + p.url + '">';
+      var close = homeCards ? "</article>" : "</a>";
       return (
-        '<a class="price-card' + (p.priceOnRequest ? " ask" : "") + '" href="' + root + p.url + '">' +
+        open +
         '<img src="' + asset(p.image.indexOf("http") === 0 ? p.image : root + p.image) + '" alt="' + shortName(p.name) + '">' +
         "<h3>" + shortName(p.name) + "</h3>" + price +
-        '<p class="lot">от 3 т в магазин<br>от 15 т опт</p></a>'
+        '<p class="lot">' + lot + "</p>" + actions + close
       );
     }).join("");
+    if (homeCards) {
+      el.querySelectorAll(".js-lead").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var modal = document.getElementById("lead-modal");
+          if (!modal) return;
+          var product = modal.querySelector('[name="product"]');
+          if (product) product.value = btn.getAttribute("data-product") || "";
+          modal.classList.add("open");
+        });
+      });
+    }
   };
 })();

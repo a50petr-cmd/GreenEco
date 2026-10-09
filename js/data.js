@@ -1,7 +1,7 @@
 window.GREENECO = {
-  assetVersion: "20261018",
+  assetVersion: "20261022",
   siteUrl: "https://grineko.ru",
-  metrikaId: "",
+  metrikaId: "113572869",
   yandexVerification: "",
   catalogSheetUrl:
     "https://docs.google.com/spreadsheets/d/1J47q-2lwerjOfMab3fmdZXwtmDRb9LTtl1wdNDoGIlg/export?format=csv",
@@ -17,10 +17,11 @@ window.GREENECO = {
     legalAddress:
       "364059, Чеченская Республика, г.о. город Грозный, г. Грозный, р-н Висаитовский, ул. имени Вахи Алиева, зд. 74А, офис 37",
     warehouse: "Дербент, Республика Дагестан",
-    warehouseNote: "Основной склад — Дербент, Республика Дагестан. Есть склады в Москве.",
+    warehouseNote: "Основной склад — Дербент, Республика Дагестан.",
     mapEmbed:
       "https://yandex.ru/map-widget/v1/?ll=48.2908%2C42.0578&z=12&pt=48.2908%2C42.0578%2Cpm2rdm&text=%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82",
-    bank: "ФИЛИАЛ «РОСТОВСКИЙ» АО «АЛЬФА-БАНК»",
+    bank: "филиал «Ростовский» АО «Альфа-Банк»",
+    requisitesEmail: "grineko.ooo@mail.ru",
     rs: "40702810926210002713",
     ks: "30101810500000000207",
     bik: "046015207",
@@ -30,7 +31,7 @@ window.GREENECO = {
     phoneAcc: "+7 (928) 122-13-55",
     phoneAccHref: "tel:+79281221355",
     whatsapp: "https://wa.me/79281221355",
-    telegram: "https://wa.me/79281221355",
+    telegram: "",
     email: "kompaniagrineko@yandex.ru",
     emailSales: "kompaniagrineko@yandex.ru",
     email2: "kompaniagrineko@yandex.ru",
@@ -49,7 +50,7 @@ window.GREENECO = {
       seo: "лук репчатый оптом первый сорт урожай 2026",
       variety: "первый сорт · урожай 2026",
       caliber: "по согласованию",
-      pack: "сетка 25 кг (любой квант)",
+      pack: "сетка 25 кг",
       storage: "0…+4 °C",
       shelf: "до 12 месяцев",
       season: "урожай 2026",
@@ -74,7 +75,7 @@ window.GREENECO = {
       seo: "картофель продовольственный оптом урожай 2026",
       variety: "продовольственный · урожай 2026",
       caliber: "по согласованию",
-      pack: "сетка 25 кг (любой квант)",
+      pack: "сетка 25 кг",
       storage: "+3…+6 °C, влажность 85–95%",
       shelf: "до 12 месяцев",
       season: "урожай 2026",
@@ -99,7 +100,7 @@ window.GREENECO = {
       seo: "морковь столовая оптом урожай 2026",
       variety: "столовая · урожай 2026",
       caliber: "по согласованию",
-      pack: "сетка / мешок 25 кг (любой квант)",
+      pack: "сетка 25 кг",
       storage: "0…+1 °C, влажность 90–95%",
       shelf: "до 12 месяцев",
       season: "урожай 2026",
@@ -124,7 +125,7 @@ window.GREENECO = {
       seo: "капуста белокочанная оптом урожай 2026",
       variety: "среднеспелая и позднеспелая · урожай 2026",
       caliber: "по согласованию",
-      pack: "сетка 20–25 кг",
+      pack: "сетка 25 кг",
       storage: "−1…0 °C, влажность 90–95%",
       shelf: "до 12 месяцев",
       season: "урожай 2026",
@@ -156,7 +157,7 @@ window.GREENECO = {
       seasonKeys: ["leto", "osen"],
       packKeys: ["gofra"],
       caliberKeys: ["sredniy"],
-      volume: "по запросу",
+      volume: "объём по запросу",
       priceOnRequest: true,
       priceKg: null,
       pricePack: null,
@@ -202,9 +203,5 @@ window.GREENECO.applyPrices = function (products) {
 };
 
 window.GREENECO.priceDate = function () {
-  try {
-    var sheet = sessionStorage.getItem("greeneco_sheet_sync");
-    if (sheet) return sheet;
-  } catch (e) {}
-  return localStorage.getItem(window.GREENECO.DATE_KEY) || window.GREENECO.company.priceUpdated;
+  return window.GREENECO.company.priceUpdated || "08.10.2026";
 };

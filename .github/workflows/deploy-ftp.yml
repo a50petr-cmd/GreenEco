@@ -1,0 +1,71 @@
+# Автодеплой статического сайта на хостинг Рег.ру по FTP.
+# Секреты: Settings → Secrets and variables → Actions
+# FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_SERVER_DIR
+
+name: Deploy to Reg.ru (FTP)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      clean_slate:
+        description: Полная перезаливка (сброс состояния FTP-Deploy)
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy-ftp
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Normalize FTP server directory
+        id: ftpdir
+        env:
+          SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          dir="$SERVER_DIR"
+          case "$dir" in */) ;; *) dir="${dir}/" ;; esac
+          echo "path=$dir" >> "$GITHUB_OUTPUT"
+
+      - name: Upload site to hosting
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          local-dir: ./
+          server-dir: ${{ steps.ftpdir.outputs.path }}
+          log-level: verbose
+          dangerous-clean-slate: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_slate }}
+          exclude: |
+            **/.git*
+            **/.git/**
+            **/.github/**
+            **/.cursor/**
+            **/README.md
+            **/build-pages.js
+            **/build-pages.ps1
+
+      - name: Verify live homepage
+        run: |
+          expected=$(wc -c < index.html | tr -d ' ')
+          for attempt in 1 2 3; do
+            actual=$(curl -fsSIL "https://grineko.ru/index.html" | awk 'tolower($1)=="content-length:" {print $2}' | tr -d '\r')
+            if [ "$actual" = "$expected" ]; then
+              echo "OK: index.html on site is ${actual} bytes"
+              exit 0
+            fi
+            echo "Attempt ${attempt}: expected ${expected}, got ${actual:-unknown}; retry in 15s"
+            sleep 15
+          done
+          echo "::error::Сайт не обновился. Проверьте секрет FTP_SERVER_DIR (обычно www/grineko.ru/)."
+          exit 1

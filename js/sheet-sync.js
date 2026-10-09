@@ -80,48 +80,43 @@
       if (!p) return;
 
       var fullName = cell(rows, 1, spec.col);
-      var pack = cell(rows, 2, spec.col);
+      var packForWeight = cell(rows, 2, spec.col);
       var packExtra = cell(rows, 7, spec.col);
-      if (packExtra && pack.indexOf(packExtra) === -1) {
-        pack = pack ? pack + ", " + packExtra : packExtra;
-      }
+      if (packExtra) packForWeight = packForWeight ? packForWeight + " " + packExtra : packExtra;
       var shelf = cell(rows, 3, spec.col);
       var storage = cell(rows, 4, spec.col);
       var priceKg = parsePrice(cell(rows, 8, spec.col));
-      var volume = cell(rows, 10, spec.col);
 
       if (fullName) {
         p.desc = fullName;
         var dot = fullName.indexOf(".");
         p.variety = dot > 0 ? fullName.slice(0, dot).trim() : fullName.slice(0, 120);
       }
-      if (pack) p.pack = pack;
       if (shelf) p.shelf = shelf;
       if (storage) p.storage = storage;
-      if (volume) p.volume = volume;
       if (!isNaN(priceKg)) {
-        var w = packWeightKg(p.pack);
+        var w = packWeightKg(packForWeight || p.pack);
         p.priceKg = priceKg;
         p.pricePack = Math.round(priceKg * w);
         p.priceTon = Math.round(priceKg * 1000);
       }
     });
 
-    var d = new Date();
-    var ds =
-      ("0" + d.getDate()).slice(-2) +
-      "." +
-      ("0" + (d.getMonth() + 1)).slice(-2) +
-      "." +
-      d.getFullYear();
-    G.company.priceUpdated = ds;
-    try {
-      sessionStorage.setItem("greeneco_sheet_sync", ds);
-    } catch (e) {}
     return true;
   }
 
+  function applyOfferCopy() {
+    G.products.forEach(function (p) {
+      if (p.priceOnRequest) p.volume = "объём по запросу";
+      else {
+        p.pack = "сетка 25 кг";
+        p.volume = "от 20 т/день";
+      }
+    });
+  }
+
   function finish() {
+    applyOfferCopy();
     G._catalogReady = true;
     G.refreshCatalog();
     document.dispatchEvent(new Event("greeneco-catalog-ready"));

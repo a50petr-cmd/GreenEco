@@ -17,8 +17,9 @@
       '<header class="header" id="header">' +
       '<div class="container header-inner">' +
       '<a class="logo" href="' + href("index.html") + '"><img src="' + href("img/logo.svg") + "?v=" + (window.GREENECO.assetVersion || "") + '" alt="' + C.brand + '" width="36" height="36"><span class="logo-text">' + C.brand + "</span></a>" +
-      '<button class="burger" type="button" aria-label="Меню" id="burger">☰</button>' +
+      '<button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="header" id="burger"><span aria-hidden="true">☰</span></button>' +
       '<nav class="nav">' +
+      '<a class="nav-phone" href="' + C.phoneSalesHref + '">' + C.phoneSales + "</a>" +
       '<a href="' + href("ceny.html") + '">Цены</a>' +
       '<a href="' + href("dostavka.html") + '">Доставка</a>' +
       '<a href="' + href("o-kompanii.html") + '">О компании</a>' +
@@ -35,7 +36,7 @@
     footer.innerHTML =
       '<footer class="footer"><div class="container">' +
       '<div class="footer-grid">' +
-      "<div><h4>" + C.name + "</h4><p>Капуста, картофель, морковь и лук с сертификатами. Сезонные яблоки — по запросу. " + C.deliveryRegions + ".</p>" +
+      "<div><h4>" + C.name + "</h4><p>Капуста, картофель, морковь и лук. Сезонные яблоки — по запросу. " + C.deliveryRegions + ".</p>" +
       "<p style=\"margin-top:10px\">ИНН " + C.inn + "<br>КПП " + C.kpp + "<br>ОГРН " + C.ogrn + "</p></div>" +
       "<div><h4>Разделы</h4><ul>" +
       '<li><a href="' + href("ceny.html") + '">Цены</a></li>' +
@@ -54,7 +55,7 @@
       '<li><a href="mailto:' + C.emailSales + '">' + C.emailSales + "</a></li>" +
       '<li><a href="' + C.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a></li>' +
       "</ul></div></div>" +
-      '<div class="footer-bottom"><span>© 2021–2026 ' + C.brand + "</span><span>" + C.legalAddress + "</span></div>" +
+      '<div class="footer-bottom"><span>© 2021–2026 ' + C.brand + "</span><span>Юридический адрес: " + C.legalAddress + "</span></div>" +
       "</div></footer>";
   }
 
@@ -62,21 +63,26 @@
   const headerEl = document.getElementById("header");
   if (burger && headerEl) {
     burger.addEventListener("click", function () {
-      headerEl.classList.toggle("open");
+      var open = headerEl.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
 
   const modal = document.createElement("div");
   modal.className = "modal";
   modal.id = "lead-modal";
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-labelledby", "lead-modal-title");
   modal.innerHTML =
-    '<div class="modal-card"><h2>Заявка на поставку</h2><p class="muted">Отдел продаж свяжется в рабочее время.</p>' +
-    '<form class="form js-lead-form" style="margin-top:14px">' +
-    '<label>Имя</label><input name="name" required placeholder="Как к вам обращаться">' +
-    '<label>Телефон</label><input name="phone" type="tel" required placeholder="+7 (___) ___-__-__">' +
-    '<label>Товар</label><input name="product" placeholder="Лук, картофель, морковь…">' +
-    '<label>Объём</label><input name="volume" placeholder="Например, 3 тонны / неделя">' +
-    '<label>Комментарий</label><textarea name="comment" rows="3"></textarea>' +
+    '<div class="modal-card"><h2 id="lead-modal-title">Заявка на поставку</h2><p class="muted">Отдел продаж свяжется в рабочее время.</p>' +
+    '<form class="form js-lead-form" id="lead-modal-form" style="margin-top:14px">' +
+    '<label for="modal-name">Имя</label><input id="modal-name" name="name" required autocomplete="name" placeholder="Как к вам обращаться">' +
+    '<label for="modal-phone">Телефон</label><input id="modal-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__">' +
+    '<label for="modal-city">Город</label><input id="modal-city" name="city" autocomplete="address-level2" placeholder="Краснодар, Ростов, Москва…">' +
+    '<label for="modal-org">Организация</label><input id="modal-org" name="organization" autocomplete="organization" placeholder="Название компании">' +
+    '<label for="modal-product">Товар</label><input id="modal-product" name="product" placeholder="Лук, картофель, морковь…">' +
+    '<label for="modal-volume">Объём</label><input id="modal-volume" name="volume" placeholder="Например, 3 тонны / неделя">' +
     '<input type="text" name="_honey" class="lead-honey" tabindex="-1" autocomplete="off" aria-hidden="true">' +
     '<p class="js-lead-error" role="alert" hidden></p>' +
     '<button class="btn btn-primary" type="submit">Отправить</button>' +
@@ -84,12 +90,25 @@
     "</form></div>";
   document.body.appendChild(modal);
 
+  function openLeadModal() {
+    modal.classList.add("open");
+    var first = modal.querySelector("#modal-name");
+    if (first) first.focus();
+  }
   document.querySelectorAll(".js-lead").forEach(function (btn) {
     btn.addEventListener("click", function () {
       const preset = btn.getAttribute("data-product");
       if (preset) modal.querySelector('[name="product"]').value = preset;
-      modal.classList.add("open");
+      openLeadModal();
     });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (modal.classList.contains("open")) modal.classList.remove("open");
+    if (headerEl && headerEl.classList.contains("open")) {
+      headerEl.classList.remove("open");
+      if (burger) burger.setAttribute("aria-expanded", "false");
+    }
   });
   modal.addEventListener("click", function (e) {
     if (e.target === modal) modal.classList.remove("open");
@@ -247,42 +266,24 @@
 
   var req = document.getElementById("company-requisites");
   if (req) {
+    var reqEmail = C.requisitesEmail || C.emailSales || "kompaniagrineko@yandex.ru";
+    function reqLine(label, value) {
+      return '<p class="req-line">' + label + " — " + value + "</p>";
+    }
     req.innerHTML =
-      "<p>" +
+      '<p class="req-line">' +
       C.name +
-      " · ИНН " +
-      C.inn +
-      " · КПП " +
-      C.kpp +
-      " · ОГРН " +
-      C.ogrn +
-      " · ОКПО " +
-      C.okpo +
       "</p>" +
-      "<p>Юр. адрес: " +
-      C.legalAddress +
-      "</p>" +
-      "<p>Директор: " +
-      C.director +
-      " (на основании Устава)</p>" +
-      "<p>Р/с " +
-      C.rs +
-      " в " +
-      C.bank +
-      ", к/с " +
-      C.ks +
-      ", БИК " +
-      C.bik +
-      "</p>" +
-      '<p>Тел.: <a href="' +
-      C.phoneSalesHref +
-      '">' +
-      C.phoneSales +
-      '</a> · <a href="mailto:' +
-      C.email +
-      '">' +
-      C.email +
-      "</a></p>";
+      reqLine("ИНН/КПП", C.inn + "/" + C.kpp) +
+      reqLine("ОГРН", C.ogrn) +
+      reqLine("ОКПО", C.okpo) +
+      reqLine("Юридический адрес", C.legalAddress) +
+      reqLine("Расчётный счёт", C.rs) +
+      reqLine("Корсчёт", C.ks) +
+      reqLine("Банк", C.bank + ", БИК " + C.bik) +
+      reqLine("Телефон", '<a href="' + C.phoneSalesHref + '">' + C.phoneSales + "</a>") +
+      reqLine("Эл. почта", '<a href="mailto:' + reqEmail + '">' + reqEmail + "</a>") +
+      reqLine("Директор", C.director + ", действует на основании Устава");
   }
   document.querySelectorAll(".js-company-address").forEach(function (el) {
     el.textContent = C.legalAddress;
@@ -337,28 +338,57 @@
     } catch (err) {}
     const bar = document.getElementById("cookie-bar");
     if (bar) bar.remove();
+    syncCookieOffset();
     applyMaps();
     applyMetrika();
   }
 
+  function syncCookieOffset() {
+    var bar = document.getElementById("cookie-bar");
+    if (!bar) {
+      document.body.classList.remove("has-cookie");
+      document.body.style.paddingBottom = "";
+      return;
+    }
+    document.body.classList.add("has-cookie");
+    document.body.style.paddingBottom = bar.offsetHeight + "px";
+  }
+
+  function metrikaTagPresent() {
+    for (var j = 0; j < document.scripts.length; j++) {
+      if ((document.scripts[j].src || "").indexOf("mc.yandex.ru/metrika/tag.js") !== -1) return true;
+    }
+    return false;
+  }
+
   function applyMetrika() {
-    var id = String(window.GREENECO.metrikaId || "").replace(/\D/g, "");
-    if (!id || cookieChoice() !== "all" || document.getElementById("ym-loader")) return;
+    if (window.__greenecoMetrika || metrikaTagPresent()) {
+      window.__greenecoMetrika = true;
+      return;
+    }
+    if (cookieChoice() !== "all") return;
+    var id = String(window.GREENECO.metrikaId || "");
+    if (!id) return;
+    window.__greenecoMetrika = true;
     (function (m, e, t, r, i, k, a) {
       m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
       m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) return; }
       k = e.createElement(t);
       a = e.getElementsByTagName(t)[0];
       k.async = 1;
       k.src = r;
-      k.id = "ym-loader";
       a.parentNode.insertBefore(k, a);
-    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    window.ym(Number(id), "init", {
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=" + id, "ym");
+    window.ym(id, "init", {
+      ssr: true,
+      webvisor: true,
       clickmap: true,
-      trackLinks: true,
+      ecommerce: "dataLayer",
+      referrer: document.referrer,
+      url: location.href,
       accurateTrackBounce: true,
-      webvisor: false,
+      trackLinks: true,
     });
   }
 
@@ -368,24 +398,28 @@
     bar.id = "cookie-bar";
     bar.className = "cookie-bar";
     bar.innerHTML =
-      '<p>Мы сохраняем ваш выбор по cookie. Карта склада и Яндекс.Метрика включаются только после согласия. ' +
+      '<p>Мы сохраняем ваш выбор по cookie. Карта склада открывается только после согласия. Яндекс.Метрика считает посещения. ' +
       '<a href="' + href("politika-cookies.html") + '">Политика cookie</a>.</p>' +
       '<div class="cookie-actions">' +
       '<button type="button" class="btn btn-ghost btn-sm" id="cookie-need">Только необходимые</button>' +
       '<button type="button" class="btn btn-dark btn-sm" id="cookie-all">Принять</button>' +
       "</div>";
-    document.body.appendChild(bar);
+    var headerMount = document.getElementById("site-header");
+    if (headerMount && headerMount.parentNode) headerMount.parentNode.insertBefore(bar, headerMount.nextSibling);
+    else document.body.insertBefore(bar, document.body.firstChild);
     document.getElementById("cookie-need").addEventListener("click", function () {
       setCookieChoice("necessary");
     });
     document.getElementById("cookie-all").addEventListener("click", function () {
       setCookieChoice("all");
     });
+    syncCookieOffset();
   }
 
   applyMaps();
   applyMetrika();
   mountCookieBar();
+  window.addEventListener("resize", syncCookieOffset);
   const cookieReset = document.getElementById("cookie-reset");
   if (cookieReset) {
     cookieReset.addEventListener("click", function () {
@@ -403,5 +437,61 @@
   if (window.GREENECO.whenCatalogReady) {
     window.GREENECO.whenCatalogReady(refreshPriceDates);
     document.addEventListener("greeneco-catalog-updated", refreshPriceDates);
+  }
+
+  document.querySelectorAll("form").forEach(function (form, formIndex) {
+    form.querySelectorAll("label").forEach(function (label, labelIndex) {
+      if (label.classList.contains("consent") || label.htmlFor) return;
+      var field = label.nextElementSibling;
+      if (!field || !/^(INPUT|TEXTAREA|SELECT)$/.test(field.tagName)) return;
+      if (!field.id) field.id = "field-" + formIndex + "-" + (field.name || labelIndex);
+      label.htmlFor = field.id;
+      if (field.name === "name") field.setAttribute("autocomplete", "name");
+      if (field.name === "phone") field.setAttribute("autocomplete", "tel");
+    });
+  });
+
+  var crumbs = document.querySelector(".crumbs");
+  if (crumbs && !document.getElementById("geo-breadcrumbs")) {
+    var items = [];
+    var position = 1;
+    crumbs.querySelectorAll("a").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      var url = href;
+      try { url = new URL(href, location.href).href; } catch (err) {}
+      items.push({
+        "@type": "ListItem",
+        position: position,
+        name: a.textContent.replace(/\s+/g, " ").trim(),
+        item: url,
+      });
+      position += 1;
+    });
+    var currentName = "";
+    crumbs.childNodes.forEach(function (node) {
+      if (node.nodeType !== 3) return;
+      var text = node.textContent.replace(/\//g, "").trim();
+      if (text) currentName = text;
+    });
+    if (currentName) {
+      var canon = document.querySelector('link[rel="canonical"]');
+      items.push({
+        "@type": "ListItem",
+        position: position,
+        name: currentName,
+        item: canon ? canon.getAttribute("href") : location.href,
+      });
+    }
+    if (items.length > 1) {
+      var crumbScript = document.createElement("script");
+      crumbScript.type = "application/ld+json";
+      crumbScript.id = "geo-breadcrumbs";
+      crumbScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: items,
+      });
+      document.head.appendChild(crumbScript);
+    }
   }
 })();

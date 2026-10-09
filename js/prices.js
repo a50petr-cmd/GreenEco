@@ -26,6 +26,8 @@
         })
         .join("") +
       "</tbody>";
+    var cards = document.getElementById("price-cards");
+    if (cards && window.GREENECO.renderTodayPrices) window.GREENECO.renderTodayPrices(cards);
   }
 
   function csv() {
