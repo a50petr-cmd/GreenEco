@@ -4,15 +4,12 @@ Options -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-RewriteCond %{HTTP_HOST} ^www\.grineko\.ru$ [NC]
-RewriteRule ^ https://grineko.ru%{REQUEST_URI} [R=301,L]
-
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^ https://grineko.ru%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
-RewriteRule ^(.*/)?index\.html$ https://grineko.ru/$1 [R=301,L]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 </IfModule>
 
 ErrorDocument 404 /404.html
