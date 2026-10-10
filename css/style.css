@@ -91,6 +91,13 @@ button, input, select, textarea { font-family: inherit; }
 .btn-dark { background: var(--ink); color: #fff; }
 .btn-ghost, .btn-line { background: #fff; border: 1px solid var(--line); color: var(--ink); }
 .btn-sm { height: 40px; padding: 0 14px; font-size: 0.88rem; }
+.btn.js-lead {
+  background: #12a34a;
+  color: #fff;
+  border: 0;
+  box-shadow: 0 8px 22px rgba(18, 163, 74, 0.42);
+}
+.btn.js-lead:hover { filter: none; background: #0e8c3e; }
 
 .hero {
   position: relative; min-height: 0; display: block;
