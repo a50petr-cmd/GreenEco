@@ -78,7 +78,7 @@
     '<div class="modal-card"><h2 id="lead-modal-title">Заявка на поставку</h2><p class="muted">Отдел продаж свяжется в рабочее время.</p>' +
     '<form class="form js-lead-form" id="lead-modal-form" style="margin-top:14px">' +
     '<label for="modal-name">Имя</label><input id="modal-name" name="name" required autocomplete="name" placeholder="Как к вам обращаться">' +
-    '<label for="modal-phone">Телефон</label><input id="modal-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__">' +
+    '<label for="modal-phone">Телефон</label><input id="modal-phone" name="phone" type="tel" inputmode="numeric" required autocomplete="tel" placeholder="+7 (926) 923-29-29">' +
     '<label for="modal-city">Город</label><input id="modal-city" name="city" autocomplete="address-level2" placeholder="Краснодар, Ростов, Москва…">' +
     '<label for="modal-org">Организация</label><input id="modal-org" name="organization" autocomplete="organization" placeholder="Название компании">' +
     '<label for="modal-product">Товар</label><input id="modal-product" name="product" placeholder="Лук, картофель, морковь…">' +
@@ -190,6 +190,13 @@
 
       if (!consent || !consent.checked) {
         showError("Поставьте отметку о согласии на обработку персональных данных.");
+        return;
+      }
+
+      var phoneInput = form.querySelector('[name="phone"]');
+      if (phoneInput && phoneDigits(phoneInput.value).length !== 10) {
+        showError("Введите телефон полностью, например +7 (926) 923-29-29.");
+        phoneInput.focus();
         return;
       }
 
@@ -450,6 +457,89 @@
       if (field.name === "phone") field.setAttribute("autocomplete", "tel");
     });
   });
+
+  function phoneDigits(raw) {
+    var source = String(raw || "");
+    var digits = source.replace(/\D/g, "");
+    var hasPlus = source.indexOf("+") !== -1;
+    if (digits.length >= 11 && (digits.charAt(0) === "7" || digits.charAt(0) === "8")) digits = digits.slice(1);
+    else if (hasPlus && digits.charAt(0) === "7") digits = digits.slice(1);
+    return digits.slice(0, 10);
+  }
+
+  function formatPhone(raw) {
+    var digits = phoneDigits(raw);
+    var out = "+7";
+    if (!digits) return "+7 ";
+    out += " (" + digits.slice(0, Math.min(3, digits.length));
+    if (digits.length < 3) return out;
+    out += ")";
+    if (digits.length === 3) return out;
+    out += " " + digits.slice(3, Math.min(6, digits.length));
+    if (digits.length <= 6) return out;
+    out += "-" + digits.slice(6, Math.min(8, digits.length));
+    if (digits.length <= 8) return out;
+    out += "-" + digits.slice(8, 10);
+    return out;
+  }
+
+  function bindPhoneMask(input) {
+    if (!input || input.getAttribute("data-phone-mask")) return;
+    input.setAttribute("data-phone-mask", "1");
+    input.type = "tel";
+    input.setAttribute("inputmode", "numeric");
+    input.setAttribute("autocomplete", "tel");
+    input.setAttribute("maxlength", "18");
+    input.placeholder = "+7 (926) 923-29-29";
+    if (!String(input.value || "").trim()) input.value = "+7 ";
+
+    input.addEventListener("keydown", function (e) {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var start = input.selectionStart;
+      var end = input.selectionEnd;
+      var collapsed = start === end;
+      if ((e.key === "Backspace" || e.key === "Delete") && collapsed && start < 3) {
+        e.preventDefault();
+        return;
+      }
+      if (e.key === "Backspace" && collapsed && start > 0 && !/\d/.test(input.value.charAt(start - 1))) {
+        e.preventDefault();
+        paint(phoneDigits(input.value).slice(0, -1));
+        return;
+      }
+      var nav = ["Backspace", "Delete", "Tab", "Escape", "Enter", "ArrowLeft", "ArrowRight", "Home", "End"];
+      if (nav.indexOf(e.key) !== -1) return;
+      if (!/^\d$/.test(e.key)) e.preventDefault();
+    });
+
+    function paint(raw) {
+      var next = formatPhone(raw);
+      input.value = next;
+      if (typeof input.setSelectionRange === "function") {
+        var pos = Math.max(3, next.length);
+        input.setSelectionRange(pos, pos);
+      }
+    }
+
+    input.addEventListener("input", function () {
+      paint(input.value);
+    });
+    input.addEventListener("paste", function (e) {
+      var clip = e.clipboardData || window.clipboardData;
+      if (!clip) return;
+      e.preventDefault();
+      paint(clip.getData("text") || "");
+    });
+    input.addEventListener("focus", function () {
+      if (!String(input.value || "").trim()) input.value = "+7 ";
+      if (typeof input.setSelectionRange === "function" && input.selectionStart < 3) {
+        var end = input.value.length;
+        input.setSelectionRange(end, end);
+      }
+    });
+  }
+
+  document.querySelectorAll('input[name="phone"]').forEach(bindPhoneMask);
 
   var crumbs = document.querySelector(".crumbs");
   if (crumbs && !document.getElementById("geo-breadcrumbs")) {
